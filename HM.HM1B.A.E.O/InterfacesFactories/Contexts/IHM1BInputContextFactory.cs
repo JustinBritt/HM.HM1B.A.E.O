@@ -16,7 +16,7 @@
             RedBlackTree<Organization, ImmutableSortedSet<Organization>> surgicalSpecialties,
             Bundle operatingRooms,
             Bundle surgeons,
-            ImmutableList<KeyValuePair<INullableValue<int>, FhirDateTime>> planningHorizon,
+            RedBlackTree<INullableValue<int>, FhirDateTime> planningHorizon,
             ImmutableList<INullableValue<int>> scenarios,
             ImmutableList<INullableValue<int>> operatingRoomServiceLevels,
             ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<int>>> surgeonServiceLevelNumberTimeBlocks,
