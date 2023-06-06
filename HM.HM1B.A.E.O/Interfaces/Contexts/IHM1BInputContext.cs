@@ -6,9 +6,11 @@
 
     using Hl7.Fhir.Model;
 
+    using NGenerics.DataStructures.Trees;
+
     public interface IHM1BInputContext
     {
-        ImmutableList<Tuple<Organization, ImmutableList<Organization>>> SurgicalSpecialties { get; }
+        RedBlackTree<Organization, ImmutableSortedSet<Organization>> SurgicalSpecialties { get; }
 
         Bundle OperatingRooms { get; }
 

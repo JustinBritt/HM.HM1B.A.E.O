@@ -6,12 +6,14 @@
 
     using Hl7.Fhir.Model;
 
+    using NGenerics.DataStructures.Trees;
+
     using HM.HM1B.A.E.O.Interfaces.Contexts;
 
     public interface IHM1BInputContextFactory
     {
         IHM1BInputContext Create(
-            ImmutableList<Tuple<Organization, ImmutableList<Organization>>> surgicalSpecialties,
+            RedBlackTree<Organization, ImmutableSortedSet<Organization>> surgicalSpecialties,
             Bundle operatingRooms,
             Bundle surgeons,
             ImmutableList<KeyValuePair<INullableValue<int>, FhirDateTime>> planningHorizon,

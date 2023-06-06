@@ -7,6 +7,8 @@
 
     using Hl7.Fhir.Model;
 
+    using NGenerics.Patterns.Visitor;
+
     using OPTANO.Modeling.Optimization;
     using OPTANO.Modeling.Optimization.Enums;
 
@@ -23,6 +25,7 @@
     using HM.HM1B.A.E.O.Interfaces.Parameters.Surgeries;
     using HM.HM1B.A.E.O.Interfaces.Parameters.SurgicalSpecialties;
     using HM.HM1B.A.E.O.Interfaces.Variables;
+    using HM.HM1B.A.E.O.InterfacesVisitors.Contexts;
 
     internal abstract class HM1BModel
     {
@@ -50,7 +53,7 @@
             // j
             this.j = indicesAbstractFactory.CreatejFactory().Create(
                 this.Context.SurgicalSpecialties
-                .Select(x => x.Item1)
+                .Select(x => x.Key)
                 .Select(x => indexElementsAbstractFactory.CreatejIndexElementFactory().Create(x))
                 .ToImmutableList());
 
@@ -127,12 +130,17 @@
                 .ToImmutableList());
 
             // Δ(j)
+            ISurgicalSpecialtiesVisitor<Organization, ImmutableSortedSet<Organization>> surgicalSpecialtiesVisitor = new HM.HM1B.A.E.O.Visitors.Contexts.SurgicalSpecialtiesVisitor<Organization, ImmutableSortedSet<Organization>>(
+                parameterElementsAbstractFactory.CreateΔParameterElementFactory(),
+                this.j,
+                this.s);
+
+            this.Context.SurgicalSpecialties.AcceptVisitor(
+                surgicalSpecialtiesVisitor);
+
             this.Δ = parametersAbstractFactory.CreateΔFactory().Create(
-                this.Context.SurgicalSpecialties
-                .Select(x => parameterElementsAbstractFactory.CreateΔParameterElementFactory().Create(
-                    this.j.GetElementAt(x.Item1),
-                    x.Item2.Select(i => this.s.GetElementAt(i)).ToImmutableList()))
-                .ToImmutableList());
+                surgicalSpecialtiesVisitor.RedBlackTree,
+                surgicalSpecialtiesVisitor.Value.ToImmutableList());
 
             // Ρ(Λ)
             this.Ρ = parametersAbstractFactory.CreateΡFactory().Create(

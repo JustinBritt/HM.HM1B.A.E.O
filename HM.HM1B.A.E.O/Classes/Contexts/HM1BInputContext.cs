@@ -8,6 +8,8 @@
 
     using Hl7.Fhir.Model;
 
+    using NGenerics.DataStructures.Trees;
+
     using HM.HM1B.A.E.O.Interfaces.Contexts;
 
     public sealed class HM1BInputContext : IHM1BInputContext
@@ -15,7 +17,7 @@
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public HM1BInputContext(
-            ImmutableList<Tuple<Organization, ImmutableList<Organization>>> surgicalSpecialties,
+            RedBlackTree<Organization, ImmutableSortedSet<Organization>> surgicalSpecialties,
             Bundle operatingRooms,
             Bundle surgeons,
             ImmutableList<KeyValuePair<INullableValue<int>, FhirDateTime>> planningHorizon,
@@ -59,7 +61,7 @@
             this.SurgeonPenaltyWeights = surgeonPenaltyWeights;
         }
 
-        public ImmutableList<Tuple<Organization, ImmutableList<Organization>>> SurgicalSpecialties { get; }
+        public RedBlackTree<Organization, ImmutableSortedSet<Organization>> SurgicalSpecialties { get; }
 
         public Bundle OperatingRooms { get; }
 
