@@ -18,7 +18,7 @@
 
         RedBlackTree<INullableValue<int>, FhirDateTime> PlanningHorizon { get; }
 
-        ImmutableList<INullableValue<int>> Scenarios { get; }
+        ImmutableSortedSet<INullableValue<int>> Scenarios { get; }
 
         ImmutableList<INullableValue<int>> OperatingRoomServiceLevels { get; }
 
