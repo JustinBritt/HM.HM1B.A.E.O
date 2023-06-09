@@ -67,6 +67,7 @@
 
             // s
             this.s = indicesAbstractFactory.CreatesFactory().Create(
+                new HM.HM1B.A.E.O.Classes.Comparers.OrganizationComparer(),
                 this.Context.Surgeons
                 .Entry
                 .Where(x => x.Resource is Organization)
@@ -97,7 +98,7 @@
 
             // sΛ
             this.sΛ = crossJoinsAbstractFactory.CreatesΛFactory().Create(
-                this.s.Value
+                this.s.Value.Values
                 .SelectMany(b => this.Λ.Value, (a, b) => crossJoinElementsAbstractFactory.CreatesΛCrossJoinElementFactory().Create(a, b))
                 .ToImmutableList());
 
@@ -180,7 +181,7 @@
             this.B = variablesAbstractFactory.CreateBFactory().Create(
                 dependenciesAbstractFactory.CreateVariableCollectionFactory().Create(
                     model: this.Model, 
-                    indexSet1: this.s.Value,    
+                    indexSet1: this.s.Value.Values,    
                     lowerBoundGenerator: (a) => 0,
                     upperBoundGenerator: (a) => int.MaxValue, 
                     variableTypeGenerator: (a) => VariableType.Integer)); 
@@ -189,7 +190,7 @@
             this.e1Minus = variablesAbstractFactory.Createe1MinusFactory().Create(
                 dependenciesAbstractFactory.CreateVariableCollectionFactory().Create(
                     model: this.Model, 
-                    indexSet1: this.s.Value, 
+                    indexSet1: this.s.Value.Values, 
                     indexSet2: this.Λ.Value, 
                     lowerBoundGenerator: (a, b) => 0, 
                     upperBoundGenerator: (a, b) => int.MaxValue,
@@ -199,7 +200,7 @@
             this.e1Plus = variablesAbstractFactory.Createe1PlusFactory().Create(
                 dependenciesAbstractFactory.CreateVariableCollectionFactory().Create(
                     model: this.Model, 
-                    indexSet1: this.s.Value, 
+                    indexSet1: this.s.Value.Values, 
                     indexSet2: this.Λ.Value,
                     lowerBoundGenerator: (a, b) => 0, 
                     upperBoundGenerator: (a, b) => int.MaxValue,
@@ -209,7 +210,7 @@
 
             // Constraints 1L
             this.Model.AddConstraints(
-                this.s.Value
+                this.s.Value.Values
                 .Select(
                     x => constraintElementsAbstractFactory.CreateConstraints1LConstraintElementFactory().Create(
                         x,
@@ -220,7 +221,7 @@
 
             // Constraints 1U
             this.Model.AddConstraints(
-                this.s.Value
+                this.s.Value.Values
                 .Select(
                     x => constraintElementsAbstractFactory.CreateConstraints1UConstraintElementFactory().Create(
                         x,

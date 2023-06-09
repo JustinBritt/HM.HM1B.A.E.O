@@ -65,7 +65,7 @@
             Is s)
         {
             return BFactory.Create(
-                s.Value
+                s.Value.Values
                 .Select(
                     i => BResultElementFactory.Create(
                         i,
