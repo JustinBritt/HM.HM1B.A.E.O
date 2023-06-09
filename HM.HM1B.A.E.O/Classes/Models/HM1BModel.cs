@@ -156,12 +156,15 @@
                 surgicalSpecialtiesVisitor.Value.ToImmutableList());
 
             // Ρ(Λ)
+            IScenarioProbabilitiesVisitor<INullableValue<int>, INullableValue<decimal>> scenarioProbabilitiesVisitor = new HM.HM1B.A.E.O.Visitors.Contexts.ScenarioProbabilitiesVisitor<INullableValue<int>, INullableValue<decimal>>(
+                parameterElementsAbstractFactory.CreateΡParameterElementFactory(),
+                this.Λ);
+
+            this.Context.ScenarioProbabilities.AcceptVisitor(
+                scenarioProbabilitiesVisitor);
+
             this.Ρ = parametersAbstractFactory.CreateΡFactory().Create(
-                this.Context.ScenarioProbabilities
-                .Select(x => parameterElementsAbstractFactory.CreateΡParameterElementFactory().Create(
-                    this.Λ.GetElementAt(x.Key),
-                    x.Value))
-                .ToImmutableList());
+                scenarioProbabilitiesVisitor.RedBlackTree);
 
             // υ1Star
             this.υ1Star = parametersAbstractFactory.Createυ1StarFactory().Create(
