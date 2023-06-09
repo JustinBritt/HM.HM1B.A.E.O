@@ -20,5 +20,12 @@
         /// Gets the scenario.
         /// </summary>
         public INullableValue<int> Value { get; }
+
+        public int CompareTo(
+            IΛIndexElement other)
+        {
+            return this.Value.Value.Value.CompareTo(
+                other.Value.Value.Value);
+        }
     }
 }
