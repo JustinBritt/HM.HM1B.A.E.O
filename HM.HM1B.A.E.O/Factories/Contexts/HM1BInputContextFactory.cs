@@ -31,7 +31,7 @@
             ImmutableSortedSet<INullableValue<int>> operatingRoomServiceLevels,
             RedBlackTree<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>> surgeonServiceLevelNumberTimeBlocks,
             RedBlackTree<Organization, INullableValue<int>> surgeonStrategicTargets,
-            ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<int>>> surgeonScenarioMaximumNumberPatients,
+            RedBlackTree<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>> surgeonScenarioMaximumNumberPatients,
             RedBlackTree<INullableValue<int>, INullableValue<decimal>> scenarioProbabilities,
             INullableValue<int> optimalOperatingRoomServiceLevel,
             INullableValue<int> nextOperatingRoomServiceLevel,

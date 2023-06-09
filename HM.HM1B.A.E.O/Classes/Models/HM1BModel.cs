@@ -7,6 +7,7 @@
 
     using Hl7.Fhir.Model;
 
+    using NGenerics.DataStructures.Trees;
     using NGenerics.Patterns.Visitor;
 
     using OPTANO.Modeling.Optimization;
@@ -26,8 +27,7 @@
     using HM.HM1B.A.E.O.Interfaces.Parameters.SurgicalSpecialties;
     using HM.HM1B.A.E.O.Interfaces.Variables;
     using HM.HM1B.A.E.O.InterfacesVisitors.Contexts;
-    using NGenerics.DataStructures.Trees;
-
+    
     internal abstract class HM1BModel
     {
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -108,16 +108,16 @@
             // Parameters
 
             // A(s, υ1)
-            ISurgeonServiceLevelNumberTimeBlocksOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>> admissionsLowerBoundsOuterVisitor = new HM.HM1B.A.E.O.Visitors.Contexts.SurgeonServiceLevelNumberTimeBlocksOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>>(
+            ISurgeonServiceLevelNumberTimeBlocksOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>> surgeonServiceLevelNumberTimeBlocksOuterVisitor = new HM.HM1B.A.E.O.Visitors.Contexts.SurgeonServiceLevelNumberTimeBlocksOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>>(
                 parameterElementsAbstractFactory.CreateAParameterElementFactory(),
                 this.s,
                 this.υ1);
 
             this.Context.SurgeonServiceLevelNumberTimeBlocks.AcceptVisitor(
-                admissionsLowerBoundsOuterVisitor);
+                surgeonServiceLevelNumberTimeBlocksOuterVisitor);
 
             this.A = parametersAbstractFactory.CreateAFactory().Create(
-                admissionsLowerBoundsOuterVisitor.RedBlackTree);
+                surgeonServiceLevelNumberTimeBlocksOuterVisitor.RedBlackTree);
 
             // N(s)
             this.N = parametersAbstractFactory.CreateNFactory().Create(
@@ -128,13 +128,16 @@
                 .ToImmutableList());
 
             // n(s, Λ)
+            ISurgeonScenarioMaximumNumberPatientsOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>> surgeonScenarioMaximumNumberPatientsOuterVisitor = new HM.HM1B.A.E.O.Visitors.Contexts.SurgeonScenarioMaximumNumberPatientsOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>>(
+                parameterElementsAbstractFactory.CreatenParameterElementFactory(),
+                this.s,
+                this.Λ);
+
+            this.Context.SurgeonScenarioMaximumNumberPatients.AcceptVisitor(
+                surgeonScenarioMaximumNumberPatientsOuterVisitor);
+
             this.n = parametersAbstractFactory.CreatenFactory().Create(
-                this.Context.SurgeonScenarioMaximumNumberPatients
-                .Select(x => parameterElementsAbstractFactory.CreatenParameterElementFactory().Create(
-                    this.s.GetElementAt(x.Item1),
-                    this.Λ.GetElementAt((PositiveInt)x.Item2),
-                    (PositiveInt)x.Item3))
-                .ToImmutableList());
+                surgeonScenarioMaximumNumberPatientsOuterVisitor.RedBlackTree);
 
             // Δ(j)
             ISurgicalSpecialtiesVisitor<Organization, ImmutableSortedSet<Organization>> surgicalSpecialtiesVisitor = new HM.HM1B.A.E.O.Visitors.Contexts.SurgicalSpecialtiesVisitor<Organization, ImmutableSortedSet<Organization>>(

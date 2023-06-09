@@ -11,39 +11,39 @@
 
     using HM.HM1B.A.E.O.Interfaces.IndexElements;
     using HM.HM1B.A.E.O.Interfaces.Indices;
-    using HM.HM1B.A.E.O.Interfaces.ParameterElements.SurgeonServiceLevelTimeBlockRequirements;
+    using HM.HM1B.A.E.O.Interfaces.ParameterElements.Surgeries;
+    using HM.HM1B.A.E.O.InterfacesFactories.ParameterElements.Surgeries;
     using HM.HM1B.A.E.O.InterfacesVisitors.Contexts;
-    using HM.HM1B.A.E.O.InterfacesFactories.ParameterElements.SurgeonServiceLevelTimeBlockRequirements;
 
-    internal sealed class SurgeonServiceLevelNumberTimeBlocksOuterVisitor<TKey, TValue> : ISurgeonServiceLevelNumberTimeBlocksOuterVisitor<TKey, TValue>
+    internal sealed class SurgeonScenarioMaximumNumberPatientsOuterVisitor<TKey, TValue> : ISurgeonScenarioMaximumNumberPatientsOuterVisitor<TKey, TValue>
         where TKey : Organization
         where TValue : RedBlackTree<INullableValue<int>, INullableValue<int>>
     {
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        public SurgeonServiceLevelNumberTimeBlocksOuterVisitor(
-            IAParameterElementFactory AParameterElementFactory,
+        public SurgeonScenarioMaximumNumberPatientsOuterVisitor(
+            InParameterElementFactory nParameterElementFactory,
             Is s,
-            Iυ1 υ1)
+            IΛ Λ)
         {
-            this.AParameterElementFactory = AParameterElementFactory;
+            this.nParameterElementFactory = nParameterElementFactory;
 
             this.s = s;
 
-            this.υ1 = υ1;
+            this.Λ = Λ;
 
-            this.RedBlackTree = new RedBlackTree<IsIndexElement, RedBlackTree<Iυ1IndexElement, IAParameterElement>>();
+            this.RedBlackTree = new RedBlackTree<IsIndexElement, RedBlackTree<IΛIndexElement, InParameterElement>>();
         }
 
-        private IAParameterElementFactory AParameterElementFactory { get; }
+        private InParameterElementFactory nParameterElementFactory { get; }
 
         private Is s { get; }
 
-        private Iυ1 υ1 { get; }
+        private IΛ Λ { get; }
 
         public bool HasCompleted => false;
 
-        public RedBlackTree<IsIndexElement, RedBlackTree<Iυ1IndexElement, IAParameterElement>> RedBlackTree { get; }
+        public RedBlackTree<IsIndexElement, RedBlackTree<IΛIndexElement, InParameterElement>> RedBlackTree { get; }
 
         public void Visit(
             KeyValuePair<TKey, TValue> obj)
@@ -52,10 +52,10 @@
 
             RedBlackTree<INullableValue<int>, INullableValue<int>> value = obj.Value;
 
-            var innerVisitor = new SurgeonServiceLevelNumberTimeBlocksInnerVisitor<INullableValue<int>, INullableValue<int>>(
-                this.AParameterElementFactory,
+            var innerVisitor = new SurgeonScenarioMaximumNumberPatientsInnerVisitor<INullableValue<int>, INullableValue<int>>(
+                this.nParameterElementFactory,
                 sIndexElement,
-                this.υ1);
+                this.Λ);
 
             value.AcceptVisitor(
                 innerVisitor);
