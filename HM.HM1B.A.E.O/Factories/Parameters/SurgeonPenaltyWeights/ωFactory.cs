@@ -1,11 +1,13 @@
 ﻿namespace HM.HM1B.A.E.O.Factories.Parameters.SurgeonPenaltyWeights
 {
     using System;
-    using System.Collections.Immutable;
 
     using log4net;
 
+    using NGenerics.DataStructures.Trees;
+
     using HM.HM1B.A.E.O.Classes.Parameters.SurgeonPenaltyWeights;
+    using HM.HM1B.A.E.O.Interfaces.IndexElements;
     using HM.HM1B.A.E.O.Interfaces.ParameterElements.SurgeonPenaltyWeights;
     using HM.HM1B.A.E.O.Interfaces.Parameters.SurgeonPenaltyWeights;
     using HM.HM1B.A.E.O.InterfacesFactories.Parameters.SurgeonPenaltyWeights;
@@ -19,7 +21,7 @@
         }
 
         public Iω Create(
-            ImmutableList<IωParameterElement> value)
+            RedBlackTree<IsIndexElement, IωParameterElement> value)
         {
             Iω parameter = null;
 

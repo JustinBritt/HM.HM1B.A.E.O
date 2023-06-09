@@ -1,9 +1,8 @@
 ﻿namespace HM.HM1B.A.E.O.Classes.Parameters.SurgeonPenaltyWeights
 {
-    using System.Collections.Immutable;
-    using System.Linq;
-
     using log4net;
+
+    using NGenerics.DataStructures.Trees;
 
     using HM.HM1B.A.E.O.Interfaces.IndexElements;
     using HM.HM1B.A.E.O.Interfaces.ParameterElements.SurgeonPenaltyWeights;
@@ -14,20 +13,17 @@
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public ω(
-            ImmutableList<IωParameterElement> value)
+            RedBlackTree<IsIndexElement, IωParameterElement> value)
         {
             this.Value = value;
         }
 
-        public ImmutableList<IωParameterElement> Value { get; }
+        public RedBlackTree<IsIndexElement, IωParameterElement> Value { get; }
 
         public decimal GetElementAtAsdecimal(
             IsIndexElement sIndexElement)
         {
-            return this.Value
-                .Where(x => x.sIndexElement == sIndexElement)
-                .Select(x => x.Value.Value.Value)
-                .SingleOrDefault();
+            return this.Value[sIndexElement].Value.Value.Value;
         }
     }
 }

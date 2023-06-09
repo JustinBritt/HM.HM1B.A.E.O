@@ -180,12 +180,15 @@
                 .ToImmutableList());
 
             // ω(s)
+            ISurgeonPenaltyWeightsVisitor<Organization, INullableValue<decimal>> surgeonPenaltyWeightsVisitor = new HM.HM1B.A.E.O.Visitors.Contexts.SurgeonPenaltyWeightsVisitor<Organization, INullableValue<decimal>>(
+                parameterElementsAbstractFactory.CreateωParameterElementFactory(),
+                this.s);
+
+            this.Context.SurgeonPenaltyWeights.AcceptVisitor(
+                surgeonPenaltyWeightsVisitor);
+
             this.ω = parametersAbstractFactory.CreateωFactory().Create(
-                this.Context.SurgeonPenaltyWeights
-                .Select(x => parameterElementsAbstractFactory.CreateωParameterElementFactory().Create(
-                    this.s.GetElementAt(x.Key),
-                    (FhirDecimal)x.Value))
-                .ToImmutableList());
+                surgeonPenaltyWeightsVisitor.RedBlackTree);
 
             // Variables
 
