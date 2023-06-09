@@ -28,7 +28,7 @@
 
         ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<int>>> SurgeonScenarioMaximumNumberPatients { get; }
 
-        ImmutableList<KeyValuePair<INullableValue<int>, INullableValue<decimal>>> ScenarioProbabilities { get; }
+        RedBlackTree<INullableValue<int>, INullableValue<decimal>> ScenarioProbabilities { get; }
 
         INullableValue<int> OptimalOperatingRoomServiceLevel { get; }
 

@@ -26,7 +26,7 @@
             ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<int>>> surgeonServiceLevelNumberTimeBlocks,
             ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonStrategicTargets,
             ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<int>>> surgeonScenarioMaximumNumberPatients,
-            ImmutableList<KeyValuePair<INullableValue<int>, INullableValue<decimal>>> scenarioProbabilities,
+            RedBlackTree<INullableValue<int>, INullableValue<decimal>> scenarioProbabilities,
             INullableValue<int> optimalOperatingRoomServiceLevel,
             INullableValue<int> nextOperatingRoomServiceLevel,
             ImmutableList<KeyValuePair<FhirDateTime, INullableValue<bool>>> dayAvailabilities,
@@ -79,7 +79,7 @@
 
         public ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<int>>> SurgeonScenarioMaximumNumberPatients { get; }
 
-        public ImmutableList<KeyValuePair<INullableValue<int>, INullableValue<decimal>>> ScenarioProbabilities { get; }
+        public RedBlackTree<INullableValue<int>, INullableValue<decimal>> ScenarioProbabilities { get; }
 
         public INullableValue<int> OptimalOperatingRoomServiceLevel { get; }
 
