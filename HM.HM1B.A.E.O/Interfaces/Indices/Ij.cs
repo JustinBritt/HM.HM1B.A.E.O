@@ -4,11 +4,13 @@
 
     using Hl7.Fhir.Model;
 
+    using NGenerics.DataStructures.Trees;
+
     using HM.HM1B.A.E.O.Interfaces.IndexElements;
 
     public interface Ij
     {
-        ImmutableList<IjIndexElement> Value { get; }
+        RedBlackTree<Organization, IjIndexElement> Value { get; }
 
         IjIndexElement GetElementAt(
             Organization value);

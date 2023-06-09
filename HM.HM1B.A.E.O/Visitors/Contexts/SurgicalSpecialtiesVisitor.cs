@@ -53,9 +53,7 @@
         public void Visit(
             KeyValuePair<TKey, TValue> obj)
         {
-            //IjIndexElement jIndexElement = this.j.Value[obj.Key];
-
-            IjIndexElement jIndexElement = this.j.Value.Where(w => w.Value == obj.Key).SingleOrDefault();
+            IjIndexElement jIndexElement = this.j.Value[obj.Key];
 
             ImmutableList<IsIndexElement> value = obj.Value.Select(w => this.s.GetElementAt(w)).ToImmutableList();
 

@@ -7,27 +7,27 @@
 
     using Hl7.Fhir.Model;
 
+    using NGenerics.DataStructures.Trees;
+
     using HM.HM1B.A.E.O.Interfaces.IndexElements;
     using HM.HM1B.A.E.O.Interfaces.Indices;
-
+    
     internal sealed class j : Ij
     {
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public j(
-            ImmutableList<IjIndexElement> value)
+            RedBlackTree<Organization, IjIndexElement> value)
         {
             this.Value = value;
         }
 
-        public ImmutableList<IjIndexElement> Value { get; }
+        public RedBlackTree<Organization, IjIndexElement> Value { get; }
 
         public IjIndexElement GetElementAt(
             Organization value)
         {
-            return this.Value
-                .Where(x => x.Value == value)
-                .SingleOrDefault();
+            return this.Value[value];
         }
     }
 }

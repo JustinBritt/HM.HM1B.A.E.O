@@ -52,6 +52,7 @@
 
             // j
             this.j = indicesAbstractFactory.CreatejFactory().Create(
+                new HM.HM1B.A.E.O.Classes.Comparers.OrganizationComparer(),
                 this.Context.SurgicalSpecialties
                 .Select(x => x.Key)
                 .Select(x => indexElementsAbstractFactory.CreatejIndexElementFactory().Create(x))

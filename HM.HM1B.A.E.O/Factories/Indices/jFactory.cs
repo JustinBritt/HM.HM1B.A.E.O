@@ -5,10 +5,15 @@
 
     using log4net;
 
+    using NGenerics.DataStructures.Trees;
+
     using HM.HM1B.A.E.O.Classes.Indices;
+    using HM.HM1B.A.E.O.Interfaces.Comparers;
     using HM.HM1B.A.E.O.Interfaces.IndexElements;
     using HM.HM1B.A.E.O.Interfaces.Indices;
     using HM.HM1B.A.E.O.InterfacesFactories.Indices;
+
+    using Hl7.Fhir.Model;
 
     internal sealed class jFactory : IjFactory
     {
@@ -19,6 +24,7 @@
         }
 
         public Ij Create(
+            IOrganizationComparer organizationComparer,
             ImmutableList<IjIndexElement> value)
         {
             Ij index = null;
@@ -26,7 +32,9 @@
             try
             {
                 index = new j(
-                    value);
+                    this.CreateRedBlackTree(
+                        organizationComparer,
+                        value));
             }
             catch (Exception exception)
             {
@@ -36,6 +44,23 @@
             }
 
             return index;
+        }
+
+        private RedBlackTree<Organization, IjIndexElement> CreateRedBlackTree(
+            IOrganizationComparer organizationComparer,
+            ImmutableList<IjIndexElement> value)
+        {
+            RedBlackTree<Organization, IjIndexElement> redBlackTree = new RedBlackTree<Organization, IjIndexElement>(
+                organizationComparer);
+
+            foreach (IjIndexElement jIndexElement in value)
+            {
+                redBlackTree.Add(
+                    jIndexElement.Value,
+                    jIndexElement);
+            }
+
+            return redBlackTree;
         }
     }
 }
