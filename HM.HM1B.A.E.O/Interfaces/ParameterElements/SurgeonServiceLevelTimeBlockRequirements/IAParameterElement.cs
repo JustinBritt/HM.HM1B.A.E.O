@@ -10,6 +10,6 @@
 
         Iυ1IndexElement υ1IndexElement { get; }
 
-        PositiveInt Value { get; }
+        INullableValue<int> Value { get; }
     }
 }

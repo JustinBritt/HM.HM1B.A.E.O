@@ -1,9 +1,8 @@
 ﻿namespace HM.HM1B.A.E.O.Classes.Parameters.SurgeonServiceLevelTimeBlockRequirements
 {
-    using System.Collections.Immutable;
-    using System.Linq;
- 
     using log4net;
+
+    using NGenerics.DataStructures.Trees;
 
     using HM.HM1B.A.E.O.Interfaces.IndexElements;
     using HM.HM1B.A.E.O.Interfaces.ParameterElements.SurgeonServiceLevelTimeBlockRequirements;
@@ -14,21 +13,18 @@
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public A(
-            ImmutableList<IAParameterElement> value)
+            RedBlackTree<IsIndexElement, RedBlackTree<Iυ1IndexElement, IAParameterElement>> value)
         {
             this.Value = value;
         }
 
-        public ImmutableList<IAParameterElement> Value { get; }
+        public RedBlackTree<IsIndexElement, RedBlackTree<Iυ1IndexElement, IAParameterElement>> Value { get; }
 
         public int GetElementAtAsint(
             IsIndexElement sIndexElement,
             Iυ1IndexElement υ1IndexElement)
         {
-            return this.Value
-                .Where(x => x.sIndexElement == sIndexElement && x.υ1IndexElement == υ1IndexElement)
-                .Select(x => x.Value.Value.Value)
-                .SingleOrDefault();
+            return this.Value[sIndexElement][υ1IndexElement].Value.Value.Value;
         }
     }
 }

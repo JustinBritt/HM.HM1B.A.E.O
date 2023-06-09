@@ -26,6 +26,7 @@
     using HM.HM1B.A.E.O.Interfaces.Parameters.SurgicalSpecialties;
     using HM.HM1B.A.E.O.Interfaces.Variables;
     using HM.HM1B.A.E.O.InterfacesVisitors.Contexts;
+    using NGenerics.DataStructures.Trees;
 
     internal abstract class HM1BModel
     {
@@ -107,13 +108,16 @@
             // Parameters
 
             // A(s, υ1)
+            ISurgeonServiceLevelNumberTimeBlocksOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>> admissionsLowerBoundsOuterVisitor = new HM.HM1B.A.E.O.Visitors.Contexts.SurgeonServiceLevelNumberTimeBlocksOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>>(
+                parameterElementsAbstractFactory.CreateAParameterElementFactory(),
+                this.s,
+                this.υ1);
+
+            this.Context.SurgeonServiceLevelNumberTimeBlocks.AcceptVisitor(
+                admissionsLowerBoundsOuterVisitor);
+
             this.A = parametersAbstractFactory.CreateAFactory().Create(
-                this.Context.SurgeonServiceLevelNumberTimeBlocks
-                .Select(x => parameterElementsAbstractFactory.CreateAParameterElementFactory().Create(
-                    this.s.GetElementAt(x.Item1),
-                    this.υ1.GetElementAt((PositiveInt)x.Item2),
-                    (PositiveInt)x.Item3))
-                .ToImmutableList());
+                admissionsLowerBoundsOuterVisitor.RedBlackTree);
 
             // N(s)
             this.N = parametersAbstractFactory.CreateNFactory().Create(

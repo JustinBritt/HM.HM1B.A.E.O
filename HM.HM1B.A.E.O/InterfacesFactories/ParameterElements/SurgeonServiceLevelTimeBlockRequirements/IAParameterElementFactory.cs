@@ -10,6 +10,6 @@
         IAParameterElement Create(
             IsIndexElement sIndexElement,
             Iυ1IndexElement υ1IndexElement,
-            PositiveInt value);
+            INullableValue<int> value);
     }
 }

@@ -22,7 +22,7 @@
 
         ImmutableSortedSet<INullableValue<int>> OperatingRoomServiceLevels { get; }
 
-        ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<int>>> SurgeonServiceLevelNumberTimeBlocks { get; }
+        RedBlackTree<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>> SurgeonServiceLevelNumberTimeBlocks { get; }
 
         RedBlackTree<Organization, INullableValue<int>> SurgeonStrategicTargets { get; }
 

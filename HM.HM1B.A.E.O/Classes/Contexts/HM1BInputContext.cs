@@ -23,7 +23,7 @@
             RedBlackTree<INullableValue<int>, FhirDateTime> planningHorizon,
             ImmutableSortedSet<INullableValue<int>> scenarios,
             ImmutableSortedSet<INullableValue<int>> operatingRoomServiceLevels,
-            ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<int>>> surgeonServiceLevelNumberTimeBlocks,
+            RedBlackTree<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>> surgeonServiceLevelNumberTimeBlocks,
             RedBlackTree<Organization, INullableValue<int>> surgeonStrategicTargets,
             ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<int>>> surgeonScenarioMaximumNumberPatients,
             RedBlackTree<INullableValue<int>, INullableValue<decimal>> scenarioProbabilities,
@@ -73,7 +73,7 @@
 
         public ImmutableSortedSet<INullableValue<int>> OperatingRoomServiceLevels { get; }
 
-        public ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<int>>> SurgeonServiceLevelNumberTimeBlocks { get; }
+        public RedBlackTree<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>> SurgeonServiceLevelNumberTimeBlocks { get; }
 
         public RedBlackTree<Organization, INullableValue<int>> SurgeonStrategicTargets { get; }
 
