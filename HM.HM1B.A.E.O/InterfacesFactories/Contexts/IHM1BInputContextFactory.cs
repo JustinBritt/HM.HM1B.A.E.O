@@ -26,6 +26,6 @@
             INullableValue<int> optimalOperatingRoomServiceLevel,
             INullableValue<int> nextOperatingRoomServiceLevel,
             RedBlackTree<FhirDateTime, INullableValue<bool>> dayAvailabilities,
-            ImmutableList<KeyValuePair<Organization, INullableValue<decimal>>> surgeonPenaltyWeights);
+            RedBlackTree<Organization, INullableValue<decimal>> surgeonPenaltyWeights);
     }
 }

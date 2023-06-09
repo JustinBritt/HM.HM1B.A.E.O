@@ -36,6 +36,6 @@
 
         RedBlackTree<FhirDateTime, INullableValue<bool>> DayAvailabilities { get; }
 
-        ImmutableList<KeyValuePair<Organization, INullableValue<decimal>>> SurgeonPenaltyWeights { get; }
+        RedBlackTree<Organization, INullableValue<decimal>> SurgeonPenaltyWeights { get; }
     }
 }

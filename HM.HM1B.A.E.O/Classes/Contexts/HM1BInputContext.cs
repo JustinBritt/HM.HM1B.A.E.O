@@ -30,7 +30,7 @@
             INullableValue<int> optimalOperatingRoomServiceLevel,
             INullableValue<int> nextOperatingRoomServiceLevel,
             RedBlackTree<FhirDateTime, INullableValue<bool>> dayAvailabilities,
-            ImmutableList<KeyValuePair<Organization, INullableValue<decimal>>> surgeonPenaltyWeights)
+            RedBlackTree<Organization, INullableValue<decimal>> surgeonPenaltyWeights)
         {
             this.SurgicalSpecialties = surgicalSpecialties;
 
@@ -87,6 +87,6 @@
 
         public RedBlackTree<FhirDateTime, INullableValue<bool>> DayAvailabilities { get; }
 
-        public ImmutableList<KeyValuePair<Organization, INullableValue<decimal>>> SurgeonPenaltyWeights { get; }
+        public RedBlackTree<Organization, INullableValue<decimal>> SurgeonPenaltyWeights { get; }
     }
 }
