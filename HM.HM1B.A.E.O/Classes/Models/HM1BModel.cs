@@ -120,12 +120,15 @@
                 surgeonServiceLevelNumberTimeBlocksOuterVisitor.RedBlackTree);
 
             // N(s)
+            ISurgeonStrategicTargetsVisitor<Organization, INullableValue<int>> surgeonStrategicTargetsVisitor = new HM.HM1B.A.E.O.Visitors.Contexts.SurgeonStrategicTargetsVisitor<Organization, INullableValue<int>>(
+                parameterElementsAbstractFactory.CreateNParameterElementFactory(),
+                this.s);
+
+            this.Context.SurgeonStrategicTargets.AcceptVisitor(
+                surgeonStrategicTargetsVisitor);
+
             this.N = parametersAbstractFactory.CreateNFactory().Create(
-                this.Context.SurgeonStrategicTargets
-                .Select(x => parameterElementsAbstractFactory.CreateNParameterElementFactory().Create(
-                    this.s.GetElementAt(x.Key),
-                    (PositiveInt)x.Value))
-                .ToImmutableList());
+                surgeonStrategicTargetsVisitor.RedBlackTree);
 
             // n(s, Λ)
             ISurgeonScenarioMaximumNumberPatientsOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>> surgeonScenarioMaximumNumberPatientsOuterVisitor = new HM.HM1B.A.E.O.Visitors.Contexts.SurgeonScenarioMaximumNumberPatientsOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>>(
