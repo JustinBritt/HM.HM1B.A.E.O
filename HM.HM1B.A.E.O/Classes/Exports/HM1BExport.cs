@@ -28,6 +28,7 @@
         {
             return abstractFactory.CreateSolutionsAbstractFactory().CreateHM1BSolutionFactory().Create().Solve(
                 abstractFactory.CreateCalculationsAbstractFactory(),
+                abstractFactory.CreateComparersAbstractFactory(),
                 abstractFactory.CreateConstraintElementsAbstractFactory(),
                 abstractFactory.CreateConstraintsAbstractFactory(),
                 abstractFactory.CreateContextsAbstractFactory(),

@@ -13,6 +13,7 @@
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public HM1B111Model(
+            IComparersAbstractFactory comparersAbstractFactory,
             IConstraintElementsAbstractFactory constraintElementsAbstractFactory,
             IConstraintsAbstractFactory constraintsAbstractFactory,
             ICrossJoinElementsAbstractFactory crossJoinElementsAbstractFactory,
@@ -26,6 +27,7 @@
             IVariablesAbstractFactory variablesAbstractFactory,
             IHM1BInputContext HM1BInputContext) :
             base(
+                comparersAbstractFactory,
                 constraintElementsAbstractFactory,
                 constraintsAbstractFactory,
                 crossJoinElementsAbstractFactory,

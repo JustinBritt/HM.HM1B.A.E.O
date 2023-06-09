@@ -20,6 +20,7 @@
         }
 
         public IHM1BModel Create(
+            IComparersAbstractFactory comparersAbstractFactory,
             IConstraintElementsAbstractFactory constraintElementsAbstractFactory,
             IConstraintsAbstractFactory constraintsAbstractFactory,
             ICrossJoinElementsAbstractFactory crossJoinElementsAbstractFactory,
@@ -41,6 +42,7 @@
                 model = HM1BEncodingEnum switch
                 {
                     HM1BEncodingEnum.E100 => new HM1B100Model(
+                        comparersAbstractFactory,
                         constraintElementsAbstractFactory,
                         constraintsAbstractFactory,
                         crossJoinElementsAbstractFactory,
@@ -55,6 +57,7 @@
                         HM1BInputContext),
 
                     HM1BEncodingEnum.E110 => new HM1B110Model(
+                        comparersAbstractFactory,
                         constraintElementsAbstractFactory,
                         constraintsAbstractFactory,
                         crossJoinElementsAbstractFactory,
@@ -69,6 +72,7 @@
                         HM1BInputContext),
 
                     HM1BEncodingEnum.E111 => new HM1B111Model(
+                        comparersAbstractFactory,
                         constraintElementsAbstractFactory,
                         constraintsAbstractFactory,
                         crossJoinElementsAbstractFactory,
