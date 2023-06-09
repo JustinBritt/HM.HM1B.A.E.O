@@ -20,7 +20,7 @@
 
         ImmutableSortedSet<INullableValue<int>> Scenarios { get; }
 
-        ImmutableList<INullableValue<int>> OperatingRoomServiceLevels { get; }
+        ImmutableSortedSet<INullableValue<int>> OperatingRoomServiceLevels { get; }
 
         ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<int>>> SurgeonServiceLevelNumberTimeBlocks { get; }
 

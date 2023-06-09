@@ -28,7 +28,7 @@
             Bundle surgeons,
             RedBlackTree<INullableValue<int>, FhirDateTime> planningHorizon,
             ImmutableSortedSet<INullableValue<int>> scenarios,
-            ImmutableList<INullableValue<int>> operatingRoomServiceLevels,
+            ImmutableSortedSet<INullableValue<int>> operatingRoomServiceLevels,
             ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<int>>> surgeonServiceLevelNumberTimeBlocks,
             ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonStrategicTargets,
             ImmutableList<Tuple<Organization, INullableValue<int>, INullableValue<int>>> surgeonScenarioMaximumNumberPatients,
