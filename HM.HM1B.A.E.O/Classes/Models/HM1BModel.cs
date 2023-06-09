@@ -53,7 +53,7 @@
 
             // j
             this.j = indicesAbstractFactory.CreatejFactory().Create(
-                new HM.HM1B.A.E.O.Classes.Comparers.OrganizationComparer(),
+                comparersAbstractFactory.CreateOrganizationComparerFactory().Create(),
                 this.Context.SurgicalSpecialties
                 .Select(x => x.Key)
                 .Select(x => indexElementsAbstractFactory.CreatejIndexElementFactory().Create(x))
@@ -69,7 +69,7 @@
 
             // s
             this.s = indicesAbstractFactory.CreatesFactory().Create(
-                new HM.HM1B.A.E.O.Classes.Comparers.OrganizationComparer(),
+                comparersAbstractFactory.CreateOrganizationComparerFactory().Create(),
                 this.Context.Surgeons
                 .Entry
                 .Where(x => x.Resource is Organization)
