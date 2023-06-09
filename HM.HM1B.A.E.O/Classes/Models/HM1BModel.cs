@@ -176,7 +176,7 @@
                 this.Context.DayAvailabilities
                 .Select(x => parameterElementsAbstractFactory.CreateψParameterElementFactory().Create(
                     this.t.GetElementAt(x.Key),
-                    (FhirBoolean)x.Value))
+                    x.Value))
                 .ToImmutableList());
 
             // ω(s)
