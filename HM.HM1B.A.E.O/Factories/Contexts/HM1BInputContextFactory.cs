@@ -35,7 +35,7 @@
             RedBlackTree<INullableValue<int>, INullableValue<decimal>> scenarioProbabilities,
             INullableValue<int> optimalOperatingRoomServiceLevel,
             INullableValue<int> nextOperatingRoomServiceLevel,
-            ImmutableList<KeyValuePair<FhirDateTime, INullableValue<bool>>> dayAvailabilities,
+            RedBlackTree<FhirDateTime, INullableValue<bool>> dayAvailabilities,
             ImmutableList<KeyValuePair<Organization, INullableValue<decimal>>> surgeonPenaltyWeights)
         {
             IHM1BInputContext context = null;

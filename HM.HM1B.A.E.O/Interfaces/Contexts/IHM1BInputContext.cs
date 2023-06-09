@@ -34,7 +34,7 @@
 
         INullableValue<int> NextOperatingRoomServiceLevel { get; }
 
-        ImmutableList<KeyValuePair<FhirDateTime, INullableValue<bool>>> DayAvailabilities { get; }
+        RedBlackTree<FhirDateTime, INullableValue<bool>> DayAvailabilities { get; }
 
         ImmutableList<KeyValuePair<Organization, INullableValue<decimal>>> SurgeonPenaltyWeights { get; }
     }
