@@ -57,8 +57,6 @@
 
             IjIndexElement jIndexElement = this.j.Value.Where(w => w.Value == obj.Key).SingleOrDefault();
 
-            //ImmutableList<IsIndexElement> value = obj.Value.Select(w => this.s.Value[w]).ToImmutableList();
-
             ImmutableList<IsIndexElement> value = obj.Value.Select(w => this.s.GetElementAt(w)).ToImmutableList();
 
             this.RedBlackTree.Add(
