@@ -1,8 +1,5 @@
 ﻿namespace HM.HM1B.A.E.O.Classes.Indices
 {
-    using System.Collections.Immutable;
-    using System.Linq;
-
     using log4net;
 
     using Hl7.Fhir.Model;
