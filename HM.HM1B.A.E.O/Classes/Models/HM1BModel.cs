@@ -160,7 +160,7 @@
                 this.Context.ScenarioProbabilities
                 .Select(x => parameterElementsAbstractFactory.CreateΡParameterElementFactory().Create(
                     this.Λ.GetElementAt(x.Key),
-                    (FhirDecimal)x.Value))
+                    x.Value))
                 .ToImmutableList());
 
             // υ1Star
