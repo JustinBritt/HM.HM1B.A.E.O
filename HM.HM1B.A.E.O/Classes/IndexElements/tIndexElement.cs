@@ -28,5 +28,12 @@
         /// Gets the value of the day.
         /// </summary>
         public FhirDateTime Value { get; }
+
+        public int CompareTo(
+            ItIndexElement other)
+        {
+            return this.Key.CompareTo(
+                other.Key);
+        }
     }
 }
