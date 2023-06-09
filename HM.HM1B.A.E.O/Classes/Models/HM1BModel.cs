@@ -88,13 +88,13 @@
             // Λ
             this.Λ = indicesAbstractFactory.CreateΛFactory().Create(
                 this.Context.Scenarios
-                .Select(x => indexElementsAbstractFactory.CreateΛIndexElementFactory().Create((PositiveInt)x))
+                .Select(x => indexElementsAbstractFactory.CreateΛIndexElementFactory().Create(x))
                 .ToImmutableList());
 
             // υ1
             this.υ1 = indicesAbstractFactory.Createυ1Factory().Create(
                 this.Context.OperatingRoomServiceLevels
-                .Select(x => indexElementsAbstractFactory.Createυ1IndexElementFactory().Create((PositiveInt)x))
+                .Select(x => indexElementsAbstractFactory.Createυ1IndexElementFactory().Create(x))
                 .ToImmutableList());
 
             // Cross joins
@@ -159,17 +159,17 @@
             this.Ρ = parametersAbstractFactory.CreateΡFactory().Create(
                 this.Context.ScenarioProbabilities
                 .Select(x => parameterElementsAbstractFactory.CreateΡParameterElementFactory().Create(
-                    this.Λ.GetElementAt((PositiveInt)x.Key),
+                    this.Λ.GetElementAt(x.Key),
                     (FhirDecimal)x.Value))
                 .ToImmutableList());
 
             // υ1Star
             this.υ1Star = parametersAbstractFactory.Createυ1StarFactory().Create(
-                this.υ1.GetElementAt((PositiveInt)this.Context.OptimalOperatingRoomServiceLevel));
+                this.υ1.GetElementAt(this.Context.OptimalOperatingRoomServiceLevel));
 
             // υ1StarPlus1
             this.υ1StarPlus1 = parametersAbstractFactory.Createυ1StarPlus1Factory().Create(
-                this.υ1.GetElementAt((PositiveInt)this.Context.NextOperatingRoomServiceLevel));
+                this.υ1.GetElementAt(this.Context.NextOperatingRoomServiceLevel));
 
             // ψ(t)
             this.ψ = parametersAbstractFactory.CreateψFactory().Create(
