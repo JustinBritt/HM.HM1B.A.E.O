@@ -20,5 +20,12 @@
         /// Gets the service level.
         /// </summary>
         public INullableValue<int> Value { get; }
+
+        public int CompareTo(
+            Iυ1IndexElement other)
+        {
+            return this.Value.Value.Value.CompareTo(
+                other.Value.Value.Value);
+        }
     }
 }
