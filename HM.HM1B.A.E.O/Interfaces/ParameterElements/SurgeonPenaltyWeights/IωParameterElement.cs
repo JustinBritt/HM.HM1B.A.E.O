@@ -8,6 +8,6 @@
     {
         IsIndexElement sIndexElement { get; }
 
-        FhirDecimal Value { get; }
+        INullableValue<decimal> Value { get; }
     }
 }

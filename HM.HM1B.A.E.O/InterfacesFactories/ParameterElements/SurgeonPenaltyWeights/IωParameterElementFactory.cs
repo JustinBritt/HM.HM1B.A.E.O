@@ -9,6 +9,6 @@
     {
         IωParameterElement Create(
             IsIndexElement sIndexElement,
-            FhirDecimal value);
+            INullableValue<decimal> value);
     }
 }
