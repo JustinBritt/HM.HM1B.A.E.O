@@ -19,7 +19,7 @@
         }
 
         public Iυ1IndexElement Create(
-            PositiveInt value)
+            INullableValue<int> value)
         {
             Iυ1IndexElement indexElement = null;
 

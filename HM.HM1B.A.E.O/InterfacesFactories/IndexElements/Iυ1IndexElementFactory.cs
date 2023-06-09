@@ -7,6 +7,6 @@
     public interface Iυ1IndexElementFactory
     {
         Iυ1IndexElement Create(
-            PositiveInt value);
+            INullableValue<int> value);
     }
 }

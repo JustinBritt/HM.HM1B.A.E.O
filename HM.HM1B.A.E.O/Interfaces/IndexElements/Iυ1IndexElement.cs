@@ -7,6 +7,6 @@
         /// <summary>
         /// Gets the service level.
         /// </summary>
-        PositiveInt Value { get; }
+        INullableValue<int> Value { get; }
     }
 }
