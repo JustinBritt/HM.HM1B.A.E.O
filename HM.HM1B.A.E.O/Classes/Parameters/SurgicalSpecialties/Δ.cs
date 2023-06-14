@@ -18,6 +18,8 @@
             RedBlackTree<IjIndexElement, ImmutableList<IsIndexElement>> redBlackTree,
             ImmutableList<IΔParameterElement> value)
         {
+            this.RedBlackTree = redBlackTree;
+
             this.Value = value;
         }
 
