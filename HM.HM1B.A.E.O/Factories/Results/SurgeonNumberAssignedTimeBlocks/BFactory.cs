@@ -5,7 +5,10 @@
 
     using log4net;
 
+    using NGenerics.DataStructures.Trees;
+
     using HM.HM1B.A.E.O.Classes.Results.SurgeonNumberAssignedTimeBlocks;
+    using HM.HM1B.A.E.O.Interfaces.IndexElements;
     using HM.HM1B.A.E.O.Interfaces.ResultElements.SurgeonNumberAssignedTimeBlocks;
     using HM.HM1B.A.E.O.Interfaces.Results.SurgeonNumberAssignedTimeBlocks;
     using HM.HM1B.A.E.O.InterfacesFactories.Results.SurgeonNumberAssignedTimeBlocks;
@@ -19,7 +22,7 @@
         }
 
         public IB Create(
-            ImmutableList<IBResultElement> value)
+            RedBlackTree<IsIndexElement, IBResultElement> value)
         {
             IB result = null;
 

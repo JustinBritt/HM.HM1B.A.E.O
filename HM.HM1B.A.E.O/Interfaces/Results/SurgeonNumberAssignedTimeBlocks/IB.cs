@@ -12,7 +12,7 @@
 
     public interface IB
     {
-        ImmutableList<IBResultElement> Value { get; }
+        RedBlackTree<IsIndexElement, IBResultElement> Value { get; }
 
         IBResultElement GetElementAt(
             IsIndexElement sIndexElement);

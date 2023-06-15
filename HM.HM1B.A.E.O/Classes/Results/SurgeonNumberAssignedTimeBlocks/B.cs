@@ -19,25 +19,23 @@
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public B(
-            ImmutableList<IBResultElement> value)
+            RedBlackTree<IsIndexElement, IBResultElement> value)
         {
             this.Value = value;
         }
 
-        public ImmutableList<IBResultElement> Value { get; }
+        public RedBlackTree<IsIndexElement, IBResultElement> Value { get; }
 
         public IBResultElement GetElementAt(
             IsIndexElement sIndexElement)
         {
-            return this.Value
-                .Where(w => w.sIndexElement == sIndexElement)
-                .SingleOrDefault();
+            return this.Value[sIndexElement];
         }
 
         public int GetElementAtAsInt(
             IsIndexElement sIndexElement)
         {
-            return this.Value
+            return this.Value.Values
                 .Where(w => w.sIndexElement == sIndexElement)
                 .Select(w => w.Value)
                 .SingleOrDefault();
@@ -58,7 +56,7 @@
             RedBlackTree<Organization, INullableValue<int>> redBlackTree = new RedBlackTree<Organization, INullableValue<int>>(
                 new HM.HM1B.A.E.O.Classes.Comparers.OrganizationComparer());
 
-            foreach (IBResultElement BResultElement in this.Value)
+            foreach (IBResultElement BResultElement in this.Value.Values)
             {
                 redBlackTree.Add(
                     BResultElement.sIndexElement.Value,

@@ -9,14 +9,17 @@
 
     using Hl7.Fhir.Model;
 
+    using NGenerics.DataStructures.Trees;
+
     using OPTANO.Modeling.Optimization;
 
     using HM.HM1B.A.E.O.Interfaces.IndexElements;
     using HM.HM1B.A.E.O.Interfaces.Indices;
+    using HM.HM1B.A.E.O.Interfaces.ResultElements.SurgeonNumberAssignedTimeBlocks;
     using HM.HM1B.A.E.O.Interfaces.Variables;
     using HM.HM1B.A.E.O.InterfacesFactories.ResultElements.SurgeonNumberAssignedTimeBlocks;
     using HM.HM1B.A.E.O.InterfacesFactories.Results.SurgeonNumberAssignedTimeBlocks;
-
+    
     internal sealed class B : IB
     {
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -64,14 +67,20 @@
             IBFactory BFactory,
             Is s)
         {
-            return BFactory.Create(
-                s.Value.Values
-                .Select(
-                    i => BResultElementFactory.Create(
-                        i,
+            RedBlackTree<IsIndexElement, IBResultElement> redBlackTree = new RedBlackTree<IsIndexElement, IBResultElement>();
+
+            foreach (IsIndexElement sIndexElement in s.Value.Values)
+            {
+                redBlackTree.Add(
+                    sIndexElement,
+                    BResultElementFactory.Create(
+                        sIndexElement,
                         this.GetElementAt(
-                            i)))
-                .ToImmutableList());
+                            sIndexElement)));
+            }
+
+            return BFactory.Create(
+                redBlackTree);
         }
     }
 }
