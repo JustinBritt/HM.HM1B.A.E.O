@@ -95,6 +95,7 @@
 
             // υ1
             this.υ1 = indicesAbstractFactory.Createυ1Factory().Create(
+                comparersAbstractFactory.CreateNullableValueintComparerFactory().Create(),
                 this.Context.OperatingRoomServiceLevels
                 .Select(x => indexElementsAbstractFactory.Createυ1IndexElementFactory().Create(x))
                 .ToImmutableList());

@@ -48,7 +48,8 @@
         public void Visit(
             KeyValuePair<TKey, TValue> obj)
         {
-            Iυ1IndexElement υ1IndexElement = this.υ1.Value.Where(w => w.Value.Value.Value == obj.Key.Value.Value).SingleOrDefault();
+            Iυ1IndexElement υ1IndexElement = this.υ1.GetElementAt(
+                obj.Key);
 
             this.RedBlackTree.Add(
                 υ1IndexElement,

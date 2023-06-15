@@ -5,11 +5,16 @@
 
     using log4net;
 
+    using Hl7.Fhir.Model;
+
+    using NGenerics.DataStructures.Trees;
+
     using HM.HM1B.A.E.O.Classes.Indices;
+    using HM.HM1B.A.E.O.Interfaces.Comparers;
     using HM.HM1B.A.E.O.Interfaces.IndexElements;
     using HM.HM1B.A.E.O.Interfaces.Indices;
     using HM.HM1B.A.E.O.InterfacesFactories.Indices;
-
+    
     internal sealed class υ1Factory : Iυ1Factory
     {
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -19,6 +24,7 @@
         }
 
         public Iυ1 Create(
+            INullableValueintComparer nullableValueintComparer,
             ImmutableList<Iυ1IndexElement> value)
         {
             Iυ1 index = null;
@@ -26,7 +32,9 @@
             try
             {
                 index = new υ1(
-                    value);
+                    this.CreateRedBlackTree(
+                        nullableValueintComparer,
+                        value));
             }
             catch (Exception exception)
             {
@@ -36,6 +44,23 @@
             }
 
             return index;
+        }
+
+        private RedBlackTree<INullableValue<int>, Iυ1IndexElement> CreateRedBlackTree(
+            INullableValueintComparer nullableValueintComparer,
+            ImmutableList<Iυ1IndexElement> value)
+        {
+            RedBlackTree<INullableValue<int>, Iυ1IndexElement> redBlackTree = new RedBlackTree<INullableValue<int>, Iυ1IndexElement>(
+                nullableValueintComparer);
+
+            foreach (Iυ1IndexElement υ1IndexElement in value)
+            {
+                redBlackTree.Add(
+                    υ1IndexElement.Value,
+                    υ1IndexElement);
+            }
+
+            return redBlackTree;
         }
     }
 }
