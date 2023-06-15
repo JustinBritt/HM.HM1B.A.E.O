@@ -80,6 +80,7 @@
 
             // t
             this.t = indicesAbstractFactory.CreatetFactory().Create(
+                comparersAbstractFactory.CreateFhirDateTimeComparerFactory().Create(),
                 this.Context.PlanningHorizon
                 .Select(x => indexElementsAbstractFactory.CreatetIndexElementFactory().Create(
                     x.Key.Value.Value,

@@ -2,12 +2,14 @@
 {
     using System.Collections.Immutable;
 
+    using HM.HM1B.A.E.O.Interfaces.Comparers;
     using HM.HM1B.A.E.O.Interfaces.IndexElements;
     using HM.HM1B.A.E.O.Interfaces.Indices;
 
     public interface ItFactory
     {
         It Create(
+            IFhirDateTimeComparer FhirDateTimeComparer,
             ImmutableList<ItIndexElement> value);
     }
 }

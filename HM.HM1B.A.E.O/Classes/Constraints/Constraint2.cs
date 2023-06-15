@@ -28,7 +28,7 @@
 
             int RHS = r.GetR()
                 *
-                t.Value
+                t.Value.Values
                 .Select(x => 1 - ψ.GetElementAtAsint(x))
                 .Sum();
 
