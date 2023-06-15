@@ -75,30 +75,6 @@
                 dependenciesAbstractFactory.CreateNullableValueFactory());
         }
 
-        public HM1BOutputContext(
-            ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgicalSpecialtyNumberAssignedTimeBlocks,
-            ImmutableList<KeyValuePair<Organization, INullableValue<int>>> surgeonNumberAssignedTimeBlocks,
-            INullableValue<decimal> bestBound,
-            INullableValue<decimal> gap,
-            long numberOfExploredNodes,
-            INullableValue<decimal> objectiveValue,
-            TimeSpan overallWallTime)
-        {
-            this.SurgicalSpecialtyNumberAssignedTimeBlocks = surgicalSpecialtyNumberAssignedTimeBlocks;
-
-            this.SurgeonNumberAssignedTimeBlocks = surgeonNumberAssignedTimeBlocks;
-
-            this.BestBound = bestBound;
-
-            this.Gap = gap;
-
-            this.NumberOfExploredNodes = numberOfExploredNodes;
-
-            this.ObjectiveValue = objectiveValue;
-
-            this.OverallWallTime = overallWallTime;
-        }
-
         public ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgicalSpecialtyNumberAssignedTimeBlocks { get; }
 
         public ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgeonNumberAssignedTimeBlocks { get; }
