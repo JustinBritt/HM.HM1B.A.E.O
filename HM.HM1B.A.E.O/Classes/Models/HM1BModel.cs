@@ -88,6 +88,7 @@
 
             // Λ
             this.Λ = indicesAbstractFactory.CreateΛFactory().Create(
+                comparersAbstractFactory.CreateNullableValueintComparerFactory().Create(),
                 this.Context.Scenarios
                 .Select(x => indexElementsAbstractFactory.CreateΛIndexElementFactory().Create(x))
                 .ToImmutableList());
@@ -103,7 +104,7 @@
             // sΛ
             this.sΛ = crossJoinsAbstractFactory.CreatesΛFactory().Create(
                 this.s.Value.Values
-                .SelectMany(b => this.Λ.Value, (a, b) => crossJoinElementsAbstractFactory.CreatesΛCrossJoinElementFactory().Create(a, b))
+                .SelectMany(b => this.Λ.Value.Values, (a, b) => crossJoinElementsAbstractFactory.CreatesΛCrossJoinElementFactory().Create(a, b))
                 .ToImmutableList());
 
             // Parameters
@@ -213,7 +214,7 @@
                 dependenciesAbstractFactory.CreateVariableCollectionFactory().Create(
                     model: this.Model, 
                     indexSet1: this.s.Value.Values, 
-                    indexSet2: this.Λ.Value, 
+                    indexSet2: this.Λ.Value.Values, 
                     lowerBoundGenerator: (a, b) => 0, 
                     upperBoundGenerator: (a, b) => int.MaxValue,
                     variableTypeGenerator: (a, b) => VariableType.Integer)); 
@@ -223,7 +224,7 @@
                 dependenciesAbstractFactory.CreateVariableCollectionFactory().Create(
                     model: this.Model, 
                     indexSet1: this.s.Value.Values, 
-                    indexSet2: this.Λ.Value,
+                    indexSet2: this.Λ.Value.Values,
                     lowerBoundGenerator: (a, b) => 0, 
                     upperBoundGenerator: (a, b) => int.MaxValue,
                     variableTypeGenerator: (a, b) => VariableType.Integer)); 
