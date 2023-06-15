@@ -8,11 +8,13 @@
     using Hl7.Fhir.Model;
 
     using NGenerics.DataStructures.Trees;
+    using NGenerics.Patterns.Visitor;
 
     using HM.HM1B.A.E.O.Interfaces.IndexElements;
     using HM.HM1B.A.E.O.Interfaces.ResultElements.SurgeonNumberAssignedTimeBlocks;
     using HM.HM1B.A.E.O.Interfaces.Results.SurgeonNumberAssignedTimeBlocks;
     using HM.HM1B.A.E.O.InterfacesFactories.Dependencies.Hl7.Fhir.R4.Model;
+    using HM.HM1B.A.E.O.InterfacesVisitors.Results.SurgeonNumberAssignedTimeBlocks;
 
     internal sealed class B : IB
     {
@@ -50,18 +52,14 @@
         public RedBlackTree<Organization, INullableValue<int>> GetValueForOutputContext(
             INullableValueFactory nullableValueFactory)
         {
-            RedBlackTree<Organization, INullableValue<int>> redBlackTree = new RedBlackTree<Organization, INullableValue<int>>(
+            IBVisitor<IsIndexElement, IBResultElement> yVisitor = new HM.HM1B.A.E.O.Visitors.Results.SurgeonNumberAssignedTimeBlocks.BVisitor<IsIndexElement, IBResultElement>(
+                nullableValueFactory,
                 new HM.HM1B.A.E.O.Classes.Comparers.OrganizationComparer());
 
-            foreach (IBResultElement BResultElement in this.Value.Values)
-            {
-                redBlackTree.Add(
-                    BResultElement.sIndexElement.Value,
-                    nullableValueFactory.Create<int>(
-                        BResultElement.Value));
-            }
+            this.Value.AcceptVisitor(
+                yVisitor);
 
-            return redBlackTree;
+            return yVisitor.RedBlackTree;
         }
     }
 }
