@@ -35,10 +35,7 @@
         public int GetElementAtAsInt(
             IsIndexElement sIndexElement)
         {
-            return this.Value.Values
-                .Where(w => w.sIndexElement == sIndexElement)
-                .Select(w => w.Value)
-                .SingleOrDefault();
+            return this.Value[sIndexElement].Value;
         }
 
         public ImmutableList<IBResultElement> GetElementsAt(
