@@ -77,9 +77,9 @@
                 dependenciesAbstractFactory.CreateNullableValueFactory());
         }
 
-        public ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgicalSpecialtyNumberAssignedTimeBlocks { get; }
+        public RedBlackTree<Organization, INullableValue<int>> SurgicalSpecialtyNumberAssignedTimeBlocks { get; }
 
-        public ImmutableList<KeyValuePair<Organization, INullableValue<int>>> SurgeonNumberAssignedTimeBlocks { get; }
+        public RedBlackTree<Organization, INullableValue<int>> SurgeonNumberAssignedTimeBlocks { get; }
 
         public INullableValue<decimal> BestBound { get; }
 

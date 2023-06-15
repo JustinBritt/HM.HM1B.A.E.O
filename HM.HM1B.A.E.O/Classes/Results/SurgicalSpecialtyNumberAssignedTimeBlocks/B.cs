@@ -1,12 +1,12 @@
 ﻿namespace HM.HM1B.A.E.O.Classes.Results.SurgicalSpecialtyNumberAssignedTimeBlocks
 {
-    using System.Collections.Generic;
     using System.Collections.Immutable;
-    using System.Linq;
 
     using log4net;
 
     using Hl7.Fhir.Model;
+
+    using NGenerics.DataStructures.Trees;
 
     using HM.HM1B.A.E.O.Interfaces.ResultElements.SurgicalSpecialtyNumberAssignedTimeBlocks;
     using HM.HM1B.A.E.O.Interfaces.Results.SurgicalSpecialtyNumberAssignedTimeBlocks;
@@ -24,16 +24,21 @@
 
         public ImmutableList<IBResultElement> Value { get; }
 
-        public ImmutableList<KeyValuePair<Organization, INullableValue<int>>> GetValueForOutputContext(
+        public RedBlackTree<Organization, INullableValue<int>> GetValueForOutputContext(
             INullableValueFactory nullableValueFactory)
         {
-            return this.Value
-                .Select(
-                i => KeyValuePair.Create(
-                    i.jIndexElement.Value,
+            RedBlackTree<Organization, INullableValue<int>> redBlackTree = new RedBlackTree<Organization, INullableValue<int>>(
+                new HM.HM1B.A.E.O.Classes.Comparers.OrganizationComparer());
+
+            foreach (IBResultElement BResultElement in this.Value)
+            {
+                redBlackTree.Add(
+                    BResultElement.jIndexElement.Value,
                     nullableValueFactory.Create<int>(
-                        i.Value)))
-                .ToImmutableList();
+                        BResultElement.Value));
+            }
+
+            return redBlackTree;
         }
     }
 }

@@ -1,9 +1,10 @@
 ﻿namespace HM.HM1B.A.E.O.Interfaces.Results.SurgeonNumberAssignedTimeBlocks
 {
-    using System.Collections.Generic;
     using System.Collections.Immutable;
 
     using Hl7.Fhir.Model;
+
+    using NGenerics.DataStructures.Trees;
 
     using HM.HM1B.A.E.O.Interfaces.IndexElements;
     using HM.HM1B.A.E.O.Interfaces.ResultElements.SurgeonNumberAssignedTimeBlocks;
@@ -22,7 +23,7 @@
         ImmutableList<IBResultElement> GetElementsAt(
             ImmutableList<IsIndexElement> sIndexElements);
 
-        ImmutableList<KeyValuePair<Organization, INullableValue<int>>> GetValueForOutputContext(
+        RedBlackTree<Organization, INullableValue<int>> GetValueForOutputContext(
             INullableValueFactory nullableValueFactory);
     }
 }
