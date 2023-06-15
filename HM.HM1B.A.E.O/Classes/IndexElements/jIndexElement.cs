@@ -18,11 +18,10 @@
             this.Value = value;
         }
 
-        /// <summary>
-        /// Gets the surgical specialty.
-        /// </summary>
+        /// <inheritdoc/>
         public Organization Value { get; }
 
+        /// <inheritdoc/>
         public int CompareTo(
             IjIndexElement other)
         {

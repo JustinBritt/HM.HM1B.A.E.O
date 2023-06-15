@@ -18,11 +18,10 @@
             this.Value = value;
         }
 
-        /// <summary>
-        /// Gets the surgeon.
-        /// </summary>
+        /// <inheritdoc/>
         public Organization Value { get; }
 
+        /// <inheritdoc/>
         public int CompareTo(
             IsIndexElement other)
         {

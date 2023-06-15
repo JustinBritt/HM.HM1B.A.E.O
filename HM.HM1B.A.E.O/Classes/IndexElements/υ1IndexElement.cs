@@ -16,11 +16,10 @@
             this.Value = value;
         }
 
-        /// <summary>
-        /// Gets the service level.
-        /// </summary>
+        /// <inheritdoc/>
         public INullableValue<int> Value { get; }
 
+        /// <inheritdoc/>
         public int CompareTo(
             Iυ1IndexElement other)
         {
