@@ -9,6 +9,8 @@
 
     using Hl7.Fhir.Model;
 
+    using NGenerics.DataStructures.Trees;
+
     using OPTANO.Modeling.Optimization;
 
     using HM.HM1B.A.E.O.InterfacesAbstractFactories;
