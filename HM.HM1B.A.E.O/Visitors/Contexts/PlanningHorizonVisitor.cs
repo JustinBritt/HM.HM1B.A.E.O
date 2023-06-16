@@ -10,7 +10,6 @@
 
     using HM.HM1B.A.E.O.Interfaces.Comparers;
     using HM.HM1B.A.E.O.Interfaces.IndexElements;
-    using HM.HM1B.A.E.O.Interfaces.Indices;
     using HM.HM1B.A.E.O.InterfacesFactories.IndexElements;
     using HM.HM1B.A.E.O.InterfacesVisitors.Contexts;
 
@@ -31,8 +30,6 @@
         }
 
         private ItIndexElementFactory tIndexElementFactory { get; }
-
-        private It t { get; }
 
         public bool HasCompleted => false;
 
