@@ -8,6 +8,7 @@
 
     using NGenerics.DataStructures.Trees;
 
+    using HM.HM1B.A.E.O.Interfaces.Comparers;
     using HM.HM1B.A.E.O.Interfaces.IndexElements;
     using HM.HM1B.A.E.O.Interfaces.Indices;
     using HM.HM1B.A.E.O.InterfacesFactories.IndexElements;
@@ -20,11 +21,13 @@
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public PlanningHorizonVisitor(
-            ItIndexElementFactory tIndexElementFactory)
+            ItIndexElementFactory tIndexElementFactory,
+            IFhirDateTimeComparer FhirDateTimeComparer)
         {
             this.tIndexElementFactory = tIndexElementFactory;
 
-            this.RedBlackTree = new RedBlackTree<FhirDateTime, ItIndexElement>();
+            this.RedBlackTree = new RedBlackTree<FhirDateTime, ItIndexElement>(
+                FhirDateTimeComparer);
         }
 
         private ItIndexElementFactory tIndexElementFactory { get; }
