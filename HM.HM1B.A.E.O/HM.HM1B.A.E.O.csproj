@@ -34,9 +34,4 @@
       <PackageCopyToOutput>true</PackageCopyToOutput>
     </Content>
   </ItemGroup>
-  
-  <ItemGroup>
-    <Folder Include="InterfacesVisitors\Results\SurgicalSpecialtyNumberAssignedTimeBlocks\" />
-    <Folder Include="Visitors\Results\SurgicalSpecialtyNumberAssignedTimeBlocks\" />
-  </ItemGroup>
 </Project>
