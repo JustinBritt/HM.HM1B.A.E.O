@@ -2,14 +2,15 @@
 {
     using System.Collections.Immutable;
 
-    using HM.HM1B.A.E.O.Interfaces.Comparers;
+    using NGenerics.DataStructures.Trees;
+
     using HM.HM1B.A.E.O.Interfaces.IndexElements;
     using HM.HM1B.A.E.O.Interfaces.Indices;
+    using Hl7.Fhir.Model;
 
     public interface ItFactory
     {
         It Create(
-            IFhirDateTimeComparer FhirDateTimeComparer,
-            ImmutableList<ItIndexElement> value);
+            RedBlackTree<FhirDateTime, ItIndexElement> value);
     }
 }

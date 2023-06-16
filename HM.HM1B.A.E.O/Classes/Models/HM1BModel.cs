@@ -79,13 +79,15 @@
                 .ToImmutableList());
 
             // t
+            IPlanningHorizonVisitor<INullableValue<int>, FhirDateTime> planningHorizonVisitor = new HM.HM1B.A.E.O.Visitors.Contexts.PlanningHorizonVisitor<INullableValue<int>, FhirDateTime>(
+                    indexElementsAbstractFactory.CreatetIndexElementFactory(),
+                    comparersAbstractFactory.CreateFhirDateTimeComparerFactory().Create());
+
+            this.Context.PlanningHorizon.AcceptVisitor(
+                planningHorizonVisitor);
+
             this.t = indicesAbstractFactory.CreatetFactory().Create(
-                comparersAbstractFactory.CreateFhirDateTimeComparerFactory().Create(),
-                this.Context.PlanningHorizon
-                .Select(x => indexElementsAbstractFactory.CreatetIndexElementFactory().Create(
-                    x.Key.Value.Value,
-                    x.Value))
-                .ToImmutableList());
+                planningHorizonVisitor.RedBlackTree);
 
             // Λ
             this.Λ = indicesAbstractFactory.CreateΛFactory().Create(
