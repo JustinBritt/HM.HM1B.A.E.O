@@ -1,7 +1,6 @@
 ﻿namespace HM.HM1B.A.E.O.Factories.Contexts
 {
     using System;
-    using System.Collections.Generic;
     using System.Collections.Immutable;
 
     using log4net;
