@@ -1,11 +1,13 @@
 ﻿namespace HM.HM1B.A.E.O.Factories.Results.SurgicalSpecialtyNumberAssignedTimeBlocks
 {
     using System;
-    using System.Collections.Immutable;
 
     using log4net;
 
+    using NGenerics.DataStructures.Trees;
+
     using HM.HM1B.A.E.O.Classes.Results.SurgicalSpecialtyNumberAssignedTimeBlocks;
+    using HM.HM1B.A.E.O.Interfaces.ParameterElements.SurgicalSpecialties;
     using HM.HM1B.A.E.O.Interfaces.ResultElements.SurgicalSpecialtyNumberAssignedTimeBlocks;
     using HM.HM1B.A.E.O.Interfaces.Results.SurgicalSpecialtyNumberAssignedTimeBlocks;
     using HM.HM1B.A.E.O.InterfacesFactories.Results.SurgicalSpecialtyNumberAssignedTimeBlocks;
@@ -19,7 +21,7 @@
         }
 
         public IB Create(
-            ImmutableList<IBResultElement> value)
+            RedBlackTree<IΔParameterElement, IBResultElement> value)
         {
             IB result = null;
 
