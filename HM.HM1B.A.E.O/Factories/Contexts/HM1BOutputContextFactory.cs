@@ -22,6 +22,7 @@
 
         public IHM1BOutputContext Create(
             ICalculationsAbstractFactory calculationsAbstractFactory,
+            IComparersAbstractFactory comparersAbstractFactory,
             IDependenciesAbstractFactory dependenciesAbstractFactory,
             IResultElementsAbstractFactory resultElementsAbstractFactory,
             IResultsAbstractFactory resultsAbstractFactory,
@@ -34,6 +35,7 @@
             {
                 context = new HM1BOutputContext(
                     calculationsAbstractFactory,
+                    comparersAbstractFactory,
                     dependenciesAbstractFactory,
                     resultElementsAbstractFactory,
                     resultsAbstractFactory,

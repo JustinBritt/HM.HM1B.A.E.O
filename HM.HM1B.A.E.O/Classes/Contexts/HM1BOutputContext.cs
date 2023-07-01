@@ -23,6 +23,7 @@
 
         public HM1BOutputContext(
             ICalculationsAbstractFactory calculationsAbstractFactory,
+            IComparersAbstractFactory comparersAbstractFactory,
             IDependenciesAbstractFactory dependenciesAbstractFactory,
             IResultElementsAbstractFactory resultElementsAbstractFactory,
             IResultsAbstractFactory resultsAbstractFactory,
@@ -64,6 +65,7 @@
                 HM1BModel.s);
 
             this.SurgeonNumberAssignedTimeBlocks = Bs.GetValueForOutputContext(
+                comparersAbstractFactory.CreateOrganizationComparerFactory(),
                 dependenciesAbstractFactory.CreateNullableValueFactory());
 
             // BBar(j)

@@ -79,6 +79,7 @@
 
                             HM1BOutputContext = contextsAbstractFactory.CreateHM1BOutputContextFactory().Create(
                                 calculationsAbstractFactory,
+                                comparersAbstractFactory,
                                 dependenciesAbstractFactory,
                                 resultElementsAbstractFactory,
                                 resultsAbstractFactory,

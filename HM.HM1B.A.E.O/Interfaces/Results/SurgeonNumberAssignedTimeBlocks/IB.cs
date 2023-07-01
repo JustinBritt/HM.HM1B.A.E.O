@@ -8,6 +8,7 @@
 
     using HM.HM1B.A.E.O.Interfaces.IndexElements;
     using HM.HM1B.A.E.O.Interfaces.ResultElements.SurgeonNumberAssignedTimeBlocks;
+    using HM.HM1B.A.E.O.InterfacesFactories.Comparers;
     using HM.HM1B.A.E.O.InterfacesFactories.Dependencies.Hl7.Fhir.R4.Model;
 
     public interface IB
@@ -24,6 +25,7 @@
             ImmutableList<IsIndexElement> sIndexElements);
 
         RedBlackTree<Organization, INullableValue<int>> GetValueForOutputContext(
+            IOrganizationComparerFactory organizationComparerFactory,
             INullableValueFactory nullableValueFactory);
     }
 }
