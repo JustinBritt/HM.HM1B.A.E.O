@@ -9,6 +9,7 @@
     using HM.HM1B.A.E.O.Interfaces.ParameterElements.SurgicalSpecialties;
     using HM.HM1B.A.E.O.Interfaces.ResultElements.SurgicalSpecialtyNumberAssignedTimeBlocks;
     using HM.HM1B.A.E.O.Interfaces.Results.SurgicalSpecialtyNumberAssignedTimeBlocks;
+    using HM.HM1B.A.E.O.InterfacesFactories.Comparers;
     using HM.HM1B.A.E.O.InterfacesFactories.Dependencies.Hl7.Fhir.R4.Model;
 
     internal sealed class B : IB
@@ -24,10 +25,11 @@
         public RedBlackTree<IΔParameterElement, IBResultElement> Value { get; }
 
         public RedBlackTree<Organization, INullableValue<int>> GetValueForOutputContext(
+            IOrganizationComparerFactory organizationComparerFactory,
             INullableValueFactory nullableValueFactory)
         {
             RedBlackTree<Organization, INullableValue<int>> redBlackTree = new RedBlackTree<Organization, INullableValue<int>>(
-                new HM.HM1B.A.E.O.Classes.Comparers.OrganizationComparer());
+                organizationComparerFactory.Create());
 
             foreach (IBResultElement BResultElement in this.Value.Values)
             {

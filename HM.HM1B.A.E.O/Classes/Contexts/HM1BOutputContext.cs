@@ -76,6 +76,7 @@
                 HM1BModel.Δ,
                 Bs)
                 .GetValueForOutputContext(
+                comparersAbstractFactory.CreateOrganizationComparerFactory(),   
                 dependenciesAbstractFactory.CreateNullableValueFactory());
         }
 
