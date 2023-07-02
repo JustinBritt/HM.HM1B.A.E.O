@@ -7,7 +7,7 @@
     using HM.HM1B.A.E.O.Factories.Contexts;
     using HM.HM1B.A.E.O.InterfacesAbstractFactories;
     using HM.HM1B.A.E.O.InterfacesFactories.Contexts;
-
+    
     internal sealed class ContextsAbstractFactory : IContextsAbstractFactory
     {
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -41,6 +41,24 @@
             try
             {
                 factory = new HM1BOutputContextFactory();
+            }
+            catch (Exception exception)
+            {
+                this.Log.Error(
+                    exception.Message,
+                    exception);
+            }
+
+            return factory;
+        }
+
+        public IPlanningHorizonVisitorFactory CreatePlanningHorizonVisitorFactory()
+        {
+            IPlanningHorizonVisitorFactory factory = null;
+
+            try
+            {
+                factory = new PlanningHorizonVisitorFactory();
             }
             catch (Exception exception)
             {

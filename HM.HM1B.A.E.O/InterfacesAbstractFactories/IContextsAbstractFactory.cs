@@ -7,5 +7,7 @@
         IHM1BInputContextFactory CreateHM1BInputContextFactory();
 
         IHM1BOutputContextFactory CreateHM1BOutputContextFactory();
+
+        IPlanningHorizonVisitorFactory CreatePlanningHorizonVisitorFactory();
     }
 }
