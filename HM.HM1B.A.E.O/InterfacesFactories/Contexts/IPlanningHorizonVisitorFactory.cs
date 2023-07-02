@@ -6,12 +6,12 @@
     using HM.HM1B.A.E.O.InterfacesFactories.IndexElements;
     using HM.HM1B.A.E.O.InterfacesVisitors.Contexts;
 
-    public interface IPlanningHorizonVisitorFactory<TKey, TValue>
-        where TKey : INullableValue<int>
-        where TValue : FhirDateTime
+    public interface IPlanningHorizonVisitorFactory
     {
-        IPlanningHorizonVisitor<TKey, TValue> Create(
+        IPlanningHorizonVisitor<TKey, TValue> Create<TKey, TValue>(
             ItIndexElementFactory tIndexElementFactory,
-            IFhirDateTimeComparer FhirDateTimeComparer);
+            IFhirDateTimeComparer FhirDateTimeComparer)
+            where TKey : INullableValue<int>
+            where TValue : FhirDateTime;
     }
 }

@@ -12,9 +12,7 @@
     using HM.HM1B.A.E.O.InterfacesVisitors.Contexts;
     using HM.HM1B.A.E.O.Visitors.Contexts;
 
-    internal sealed class PlanningHorizonVisitorFactory<TKey, TValue> : IPlanningHorizonVisitorFactory<TKey, TValue>
-        where TKey : INullableValue<int>
-        where TValue : FhirDateTime
+    internal sealed class PlanningHorizonVisitorFactory : IPlanningHorizonVisitorFactory
     {
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -22,9 +20,11 @@
         {
         }
 
-        public IPlanningHorizonVisitor<TKey, TValue> Create(
+        public IPlanningHorizonVisitor<TKey, TValue> Create<TKey, TValue>(
             ItIndexElementFactory tIndexElementFactory,
             IFhirDateTimeComparer FhirDateTimeComparer)
+            where TKey : INullableValue<int>
+            where TValue : FhirDateTime
         {
             IPlanningHorizonVisitor<TKey, TValue> instance = null;
 
