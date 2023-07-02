@@ -80,7 +80,7 @@
                 .ToImmutableList());
 
             // t
-            IPlanningHorizonVisitor<INullableValue<int>, FhirDateTime> planningHorizonVisitor = new HM.HM1B.A.E.O.Visitors.Contexts.PlanningHorizonVisitor<INullableValue<int>, FhirDateTime>(
+            IPlanningHorizonVisitor<INullableValue<int>, FhirDateTime> planningHorizonVisitor = contextsAbstractFactory.CreatePlanningHorizonVisitorFactory().Create<INullableValue<int>, FhirDateTime>(
                     indexElementsAbstractFactory.CreatetIndexElementFactory(),
                     comparersAbstractFactory.CreateFhirDateTimeComparerFactory().Create());
 
