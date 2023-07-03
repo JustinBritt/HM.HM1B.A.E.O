@@ -130,6 +130,7 @@
 
             // N(s)
             ISurgeonStrategicTargetsVisitor<Organization, INullableValue<int>> surgeonStrategicTargetsVisitor = contextsAbstractFactory.CreateSurgeonStrategicTargetsVisitorFactory().Create<Organization, INullableValue<int>>(
+                dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
                 parameterElementsAbstractFactory.CreateNParameterElementFactory(),
                 this.s);
 
