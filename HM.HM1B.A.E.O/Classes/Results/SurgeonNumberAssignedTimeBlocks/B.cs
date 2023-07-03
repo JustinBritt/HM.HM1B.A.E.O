@@ -54,14 +54,14 @@
             IOrganizationComparerFactory organizationComparerFactory,
             INullableValueFactory nullableValueFactory)
         {
-            IBVisitor<IsIndexElement, IBResultElement> yVisitor = new HM.HM1B.A.E.O.Visitors.Results.SurgeonNumberAssignedTimeBlocks.BVisitor<IsIndexElement, IBResultElement>(
+            IBVisitor<IsIndexElement, IBResultElement> BVisitor = new HM.HM1B.A.E.O.Visitors.Results.SurgeonNumberAssignedTimeBlocks.BVisitor<IsIndexElement, IBResultElement>(
                 nullableValueFactory,
                 organizationComparerFactory.Create());
 
             this.Value.AcceptVisitor(
-                yVisitor);
+                BVisitor);
 
-            return yVisitor.RedBlackTree;
+            return BVisitor.RedBlackTree;
         }
     }
 }
