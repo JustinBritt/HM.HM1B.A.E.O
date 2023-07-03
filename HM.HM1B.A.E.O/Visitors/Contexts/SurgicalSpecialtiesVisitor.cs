@@ -24,6 +24,7 @@
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public SurgicalSpecialtiesVisitor(
+            IRedBlackTreeFactory redBlackTreeFactory,
             IΔParameterElementFactory ΔParameterElementFactory,
             Ij j,
             Is s)
@@ -36,7 +37,7 @@
 
             this.Value = new List<IΔParameterElement>();
 
-            this.RedBlackTree = new RedBlackTree<IjIndexElement, ImmutableList<IsIndexElement>>();
+            this.RedBlackTree = redBlackTreeFactory.Create<IjIndexElement, ImmutableList<IsIndexElement>>();
         }
 
         private IΔParameterElementFactory ΔParameterElementFactory { get; }
