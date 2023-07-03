@@ -11,6 +11,7 @@
     using HM.HM1B.A.E.O.Interfaces.IndexElements;
     using HM.HM1B.A.E.O.Interfaces.Indices;
     using HM.HM1B.A.E.O.Interfaces.ParameterElements.SurgeonPenaltyWeights;
+    using HM.HM1B.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
     using HM.HM1B.A.E.O.InterfacesFactories.ParameterElements.SurgeonPenaltyWeights;
     using HM.HM1B.A.E.O.InterfacesVisitors.Contexts;
 
@@ -21,6 +22,7 @@
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public SurgeonPenaltyWeightsVisitor(
+            IRedBlackTreeFactory redBlackTreeFactory,
             IωParameterElementFactory ωParameterElementFactory,
             Is s)
         {
@@ -28,7 +30,7 @@
 
             this.s = s;
 
-            this.RedBlackTree = new RedBlackTree<IsIndexElement, IωParameterElement>();
+            this.RedBlackTree = redBlackTreeFactory.Create<IsIndexElement, IωParameterElement>();
         }
 
         private IωParameterElementFactory ωParameterElementFactory { get; }

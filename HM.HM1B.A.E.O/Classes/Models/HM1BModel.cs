@@ -199,6 +199,7 @@
 
             // ω(s)
             ISurgeonPenaltyWeightsVisitor<Organization, INullableValue<decimal>> surgeonPenaltyWeightsVisitor = contextsAbstractFactory.CreateSurgeonPenaltyWeightsVisitorFactory().Create<Organization, INullableValue<decimal>>(
+                dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
                 parameterElementsAbstractFactory.CreateωParameterElementFactory(),
                 this.s);
 
