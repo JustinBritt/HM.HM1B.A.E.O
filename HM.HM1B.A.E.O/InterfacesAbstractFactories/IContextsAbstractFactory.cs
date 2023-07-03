@@ -20,6 +20,8 @@
 
         ISurgeonScenarioMaximumNumberPatientsOuterVisitorFactory CreateSurgeonScenarioMaximumNumberPatientsOuterVisitorFactory();
 
+        ISurgeonServiceLevelNumberTimeBlocksInnerVisitorFactory CreateSurgeonServiceLevelNumberTimeBlocksInnerVisitorFactory();
+
         ISurgeonServiceLevelNumberTimeBlocksOuterVisitorFactory CreateSurgeonServiceLevelNumberTimeBlocksOuterVisitorFactory();
 
         ISurgeonStrategicTargetsVisitorFactory CreateSurgeonStrategicTargetsVisitorFactory();

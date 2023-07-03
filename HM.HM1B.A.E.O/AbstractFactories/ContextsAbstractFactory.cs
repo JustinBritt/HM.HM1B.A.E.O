@@ -160,6 +160,24 @@
             return factory;
         }
 
+        public ISurgeonServiceLevelNumberTimeBlocksInnerVisitorFactory CreateSurgeonServiceLevelNumberTimeBlocksInnerVisitorFactory()
+        {
+            ISurgeonServiceLevelNumberTimeBlocksInnerVisitorFactory factory = null;
+
+            try
+            {
+                factory = new SurgeonServiceLevelNumberTimeBlocksInnerVisitorFactory();
+            }
+            catch (Exception exception)
+            {
+                this.Log.Error(
+                    exception.Message,
+                    exception);
+            }
+
+            return factory;
+        }
+
         public ISurgeonServiceLevelNumberTimeBlocksOuterVisitorFactory CreateSurgeonServiceLevelNumberTimeBlocksOuterVisitorFactory()
         {
             ISurgeonServiceLevelNumberTimeBlocksOuterVisitorFactory factory = null;
