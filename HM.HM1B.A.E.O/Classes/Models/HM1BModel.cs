@@ -138,7 +138,7 @@
                 surgeonStrategicTargetsVisitor.RedBlackTree);
 
             // n(s, Λ)
-            ISurgeonScenarioMaximumNumberPatientsOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>> surgeonScenarioMaximumNumberPatientsOuterVisitor = new HM.HM1B.A.E.O.Visitors.Contexts.SurgeonScenarioMaximumNumberPatientsOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>>(
+            ISurgeonScenarioMaximumNumberPatientsOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>> surgeonScenarioMaximumNumberPatientsOuterVisitor = contextsAbstractFactory.CreateSurgeonScenarioMaximumNumberPatientsOuterVisitorFactory().Create<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>>(
                 parameterElementsAbstractFactory.CreatenParameterElementFactory(),
                 this.s,
                 this.Λ);
