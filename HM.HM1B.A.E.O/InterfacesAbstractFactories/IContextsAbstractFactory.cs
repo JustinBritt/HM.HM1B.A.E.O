@@ -16,6 +16,8 @@
 
         ISurgeonPenaltyWeightsVisitorFactory CreateSurgeonPenaltyWeightsVisitorFactory();
 
+        ISurgeonScenarioMaximumNumberPatientsOuterVisitorFactory CreateSurgeonScenarioMaximumNumberPatientsOuterVisitorFactory();
+
         ISurgeonStrategicTargetsVisitorFactory CreateSurgeonStrategicTargetsVisitorFactory();
 
         ISurgicalSpecialtiesVisitorFactory CreateSurgicalSpecialtiesVisitorFactory();

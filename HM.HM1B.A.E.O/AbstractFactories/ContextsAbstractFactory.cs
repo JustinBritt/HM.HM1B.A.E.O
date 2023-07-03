@@ -124,6 +124,24 @@
             return factory;
         }
 
+        public ISurgeonScenarioMaximumNumberPatientsOuterVisitorFactory CreateSurgeonScenarioMaximumNumberPatientsOuterVisitorFactory()
+        {
+            ISurgeonScenarioMaximumNumberPatientsOuterVisitorFactory factory = null;
+
+            try
+            {
+                factory = new SurgeonScenarioMaximumNumberPatientsOuterVisitorFactory();
+            }
+            catch (Exception exception)
+            {
+                this.Log.Error(
+                    exception.Message,
+                    exception);
+            }
+
+            return factory;
+        }
+
         public ISurgeonStrategicTargetsVisitorFactory CreateSurgeonStrategicTargetsVisitorFactory()
         {
             ISurgeonStrategicTargetsVisitorFactory factory = null;
