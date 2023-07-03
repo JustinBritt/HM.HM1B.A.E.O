@@ -123,5 +123,23 @@
 
             return factory;
         }
+
+        public ISurgeonStrategicTargetsVisitorFactory CreateSurgeonStrategicTargetsVisitorFactory()
+        {
+            ISurgeonStrategicTargetsVisitorFactory factory = null;
+
+            try
+            {
+                factory = new SurgeonStrategicTargetsVisitorFactory();
+            }
+            catch (Exception exception)
+            {
+                this.Log.Error(
+                    exception.Message,
+                    exception);
+            }
+
+            return factory;
+        }
     }
 }

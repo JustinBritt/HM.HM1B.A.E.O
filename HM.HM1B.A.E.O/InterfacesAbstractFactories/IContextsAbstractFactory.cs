@@ -15,5 +15,7 @@
         IScenarioProbabilitiesVisitorFactory CreateScenarioProbabilitiesVisitorFactory();
 
         ISurgeonPenaltyWeightsVisitorFactory CreateSurgeonPenaltyWeightsVisitorFactory();
+
+        ISurgeonStrategicTargetsVisitorFactory CreateSurgeonStrategicTargetsVisitorFactory();
     }
 }
