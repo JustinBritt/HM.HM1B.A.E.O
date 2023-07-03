@@ -118,6 +118,7 @@
             // A(s, υ1)
             ISurgeonServiceLevelNumberTimeBlocksOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>> surgeonServiceLevelNumberTimeBlocksOuterVisitor = contextsAbstractFactory.CreateSurgeonServiceLevelNumberTimeBlocksOuterVisitorFactory().Create<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>>(
                 contextsAbstractFactory.CreateSurgeonServiceLevelNumberTimeBlocksInnerVisitorFactory(),
+                dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
                 parameterElementsAbstractFactory.CreateAParameterElementFactory(),
                 this.s,
                 this.υ1);

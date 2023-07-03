@@ -5,6 +5,7 @@
     using NGenerics.DataStructures.Trees;
 
     using HM.HM1B.A.E.O.Interfaces.Indices;
+    using HM.HM1B.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
     using HM.HM1B.A.E.O.InterfacesFactories.ParameterElements.SurgeonServiceLevelTimeBlockRequirements;
     using HM.HM1B.A.E.O.InterfacesVisitors.Contexts;
 
@@ -12,6 +13,7 @@
     {
         ISurgeonServiceLevelNumberTimeBlocksOuterVisitor<TKey, TValue> Create<TKey, TValue>(
             ISurgeonServiceLevelNumberTimeBlocksInnerVisitorFactory surgeonServiceLevelNumberTimeBlocksInnerVisitorFactory,
+            IRedBlackTreeFactory redBlackTreeFactory,
             IAParameterElementFactory AParameterElementFactory,
             Is s,
             Iυ1 υ1)

@@ -4,12 +4,14 @@
 
     using HM.HM1B.A.E.O.Interfaces.IndexElements;
     using HM.HM1B.A.E.O.Interfaces.Indices;
+    using HM.HM1B.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
     using HM.HM1B.A.E.O.InterfacesFactories.ParameterElements.SurgeonServiceLevelTimeBlockRequirements;
     using HM.HM1B.A.E.O.InterfacesVisitors.Contexts;
 
     public interface ISurgeonServiceLevelNumberTimeBlocksInnerVisitorFactory
     {
         ISurgeonServiceLevelNumberTimeBlocksInnerVisitor<TKey, TValue> Create<TKey, TValue>(
+            IRedBlackTreeFactory redBlackTreeFactory,
             IAParameterElementFactory AParameterElementFactory,
             IsIndexElement sIndexElement,
             Iυ1 υ1)

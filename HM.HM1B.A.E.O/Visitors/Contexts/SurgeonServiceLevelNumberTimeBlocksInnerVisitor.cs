@@ -1,7 +1,6 @@
 ﻿namespace HM.HM1B.A.E.O.Visitors.Contexts
 {
     using System.Collections.Generic;
-    using System.Linq;
 
     using log4net;
 
@@ -11,9 +10,10 @@
 
     using HM.HM1B.A.E.O.Interfaces.IndexElements;
     using HM.HM1B.A.E.O.Interfaces.Indices;
-    using HM.HM1B.A.E.O.InterfacesVisitors.Contexts;
     using HM.HM1B.A.E.O.Interfaces.ParameterElements.SurgeonServiceLevelTimeBlockRequirements;
+    using HM.HM1B.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
     using HM.HM1B.A.E.O.InterfacesFactories.ParameterElements.SurgeonServiceLevelTimeBlockRequirements;
+    using HM.HM1B.A.E.O.InterfacesVisitors.Contexts;
 
     internal sealed class SurgeonServiceLevelNumberTimeBlocksInnerVisitor<TKey, TValue> : ISurgeonServiceLevelNumberTimeBlocksInnerVisitor<TKey, TValue>
         where TKey : INullableValue<int>
@@ -22,6 +22,7 @@
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public SurgeonServiceLevelNumberTimeBlocksInnerVisitor(
+            IRedBlackTreeFactory redBlackTreeFactory,
             IAParameterElementFactory AParameterElementFactory,
             IsIndexElement sIndexElement,
             Iυ1 υ1)
@@ -32,7 +33,7 @@
 
             this.υ1 = υ1;
 
-            this.RedBlackTree = new RedBlackTree<Iυ1IndexElement, IAParameterElement>();
+            this.RedBlackTree = redBlackTreeFactory.Create<Iυ1IndexElement, IAParameterElement>();
         }
 
         private IAParameterElementFactory AParameterElementFactory { get; }

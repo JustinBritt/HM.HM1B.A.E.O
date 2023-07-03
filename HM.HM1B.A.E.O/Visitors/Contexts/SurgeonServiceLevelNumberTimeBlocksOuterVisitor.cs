@@ -14,6 +14,7 @@
     using HM.HM1B.A.E.O.Interfaces.ParameterElements.SurgeonServiceLevelTimeBlockRequirements;
     using HM.HM1B.A.E.O.InterfacesVisitors.Contexts;
     using HM.HM1B.A.E.O.InterfacesFactories.Contexts;
+    using HM.HM1B.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
     using HM.HM1B.A.E.O.InterfacesFactories.ParameterElements.SurgeonServiceLevelTimeBlockRequirements;
 
     internal sealed class SurgeonServiceLevelNumberTimeBlocksOuterVisitor<TKey, TValue> : ISurgeonServiceLevelNumberTimeBlocksOuterVisitor<TKey, TValue>
@@ -24,11 +25,14 @@
 
         public SurgeonServiceLevelNumberTimeBlocksOuterVisitor(
             ISurgeonServiceLevelNumberTimeBlocksInnerVisitorFactory surgeonServiceLevelNumberTimeBlocksInnerVisitorFactory,
+            IRedBlackTreeFactory redBlackTreeFactory,
             IAParameterElementFactory AParameterElementFactory,
             Is s,
             Iυ1 υ1)
         {
             this.SurgeonServiceLevelNumberTimeBlocksInnerVisitorFactory = surgeonServiceLevelNumberTimeBlocksInnerVisitorFactory;
+
+            this.RedBlackTreeFactory = redBlackTreeFactory;
 
             this.AParameterElementFactory = AParameterElementFactory;
 
@@ -36,10 +40,12 @@
 
             this.υ1 = υ1;
 
-            this.RedBlackTree = new RedBlackTree<IsIndexElement, RedBlackTree<Iυ1IndexElement, IAParameterElement>>();
+            this.RedBlackTree = this.RedBlackTreeFactory.Create<IsIndexElement, RedBlackTree<Iυ1IndexElement, IAParameterElement>>();
         }
 
         private ISurgeonServiceLevelNumberTimeBlocksInnerVisitorFactory SurgeonServiceLevelNumberTimeBlocksInnerVisitorFactory { get; }
+
+        private IRedBlackTreeFactory RedBlackTreeFactory { get; }
 
         private IAParameterElementFactory AParameterElementFactory { get; }
 
@@ -59,6 +65,7 @@
             RedBlackTree<INullableValue<int>, INullableValue<int>> value = obj.Value;
 
             var innerVisitor = this.SurgeonServiceLevelNumberTimeBlocksInnerVisitorFactory.Create<INullableValue<int>, INullableValue<int>>(
+                this.RedBlackTreeFactory,
                 this.AParameterElementFactory,
                 sIndexElement,
                 this.υ1);
