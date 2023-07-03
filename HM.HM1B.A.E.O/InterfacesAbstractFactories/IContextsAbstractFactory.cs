@@ -17,5 +17,7 @@
         ISurgeonPenaltyWeightsVisitorFactory CreateSurgeonPenaltyWeightsVisitorFactory();
 
         ISurgeonStrategicTargetsVisitorFactory CreateSurgeonStrategicTargetsVisitorFactory();
+
+        ISurgicalSpecialtiesVisitorFactory CreateSurgicalSpecialtiesVisitorFactory();
     }
 }
