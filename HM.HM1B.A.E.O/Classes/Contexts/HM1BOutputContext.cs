@@ -73,6 +73,7 @@
             // BBar(j)
             this.SurgicalSpecialtyNumberAssignedTimeBlocks = calculationsAbstractFactory.CreateBCalculationFactory().Create().Calculate(
                 calculationsAbstractFactory.CreateBResultElementCalculationFactory(),
+                dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
                 resultElementsAbstractFactory.CreateBBarResultElementFactory(),
                 resultsAbstractFactory.CreateBBarFactory(),
                 HM1BModel.Δ,
