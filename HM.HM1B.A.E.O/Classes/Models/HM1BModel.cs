@@ -163,7 +163,7 @@
                 surgicalSpecialtiesVisitor.Value.ToImmutableList());
 
             // Ρ(Λ)
-            IScenarioProbabilitiesVisitor<INullableValue<int>, INullableValue<decimal>> scenarioProbabilitiesVisitor = new HM.HM1B.A.E.O.Visitors.Contexts.ScenarioProbabilitiesVisitor<INullableValue<int>, INullableValue<decimal>>(
+            IScenarioProbabilitiesVisitor<INullableValue<int>, INullableValue<decimal>> scenarioProbabilitiesVisitor = contextsAbstractFactory.CreateScenarioProbabilitiesVisitorFactory().Create<INullableValue<int>, INullableValue<decimal>>(
                 parameterElementsAbstractFactory.CreateΡParameterElementFactory(),
                 this.Λ);
 
