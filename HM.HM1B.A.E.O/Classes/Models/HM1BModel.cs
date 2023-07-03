@@ -115,7 +115,7 @@
             // Parameters
 
             // A(s, υ1)
-            ISurgeonServiceLevelNumberTimeBlocksOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>> surgeonServiceLevelNumberTimeBlocksOuterVisitor = new HM.HM1B.A.E.O.Visitors.Contexts.SurgeonServiceLevelNumberTimeBlocksOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>>(
+            ISurgeonServiceLevelNumberTimeBlocksOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>> surgeonServiceLevelNumberTimeBlocksOuterVisitor = contextsAbstractFactory.CreateSurgeonServiceLevelNumberTimeBlocksOuterVisitorFactory().Create<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>>(
                 parameterElementsAbstractFactory.CreateAParameterElementFactory(),
                 this.s,
                 this.υ1);
