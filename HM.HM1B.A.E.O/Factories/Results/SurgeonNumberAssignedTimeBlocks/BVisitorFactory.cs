@@ -8,6 +8,7 @@
     using HM.HM1B.A.E.O.Interfaces.IndexElements;
     using HM.HM1B.A.E.O.Interfaces.ResultElements.SurgeonNumberAssignedTimeBlocks;
     using HM.HM1B.A.E.O.InterfacesFactories.Dependencies.Hl7.Fhir.R4.Model;
+    using HM.HM1B.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
     using HM.HM1B.A.E.O.InterfacesFactories.Results.SurgeonNumberAssignedTimeBlocks;
     using HM.HM1B.A.E.O.InterfacesVisitors.Results.SurgeonNumberAssignedTimeBlocks;
     using HM.HM1B.A.E.O.Visitors.Results.SurgeonNumberAssignedTimeBlocks;
@@ -22,6 +23,7 @@
 
         public IBVisitor<TKey, TValue> Create<TKey, TValue>(
             INullableValueFactory nullableValueFactory,
+            IRedBlackTreeFactory redBlackTreeFactory,
             IOrganizationComparer organizationComparer)
             where TKey : IsIndexElement
             where TValue : IBResultElement
@@ -32,6 +34,7 @@
             {
                 instance = new BVisitor<TKey, TValue>(
                     nullableValueFactory,
+                    redBlackTreeFactory,
                     organizationComparer);
             }
             catch (Exception exception)
