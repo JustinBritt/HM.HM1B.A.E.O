@@ -127,7 +127,7 @@
                 surgeonServiceLevelNumberTimeBlocksOuterVisitor.RedBlackTree);
 
             // N(s)
-            ISurgeonStrategicTargetsVisitor<Organization, INullableValue<int>> surgeonStrategicTargetsVisitor = new HM.HM1B.A.E.O.Visitors.Contexts.SurgeonStrategicTargetsVisitor<Organization, INullableValue<int>>(
+            ISurgeonStrategicTargetsVisitor<Organization, INullableValue<int>> surgeonStrategicTargetsVisitor = contextsAbstractFactory.CreateSurgeonStrategicTargetsVisitorFactory().Create<Organization, INullableValue<int>>(
                 parameterElementsAbstractFactory.CreateNParameterElementFactory(),
                 this.s);
 
