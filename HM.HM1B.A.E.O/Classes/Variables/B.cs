@@ -64,11 +64,12 @@
         }
 
         public Interfaces.Results.SurgeonNumberAssignedTimeBlocks.IB GetElementsAt(
+            IRedBlackTreeFactory redBlackTreeFactory,
             IBResultElementFactory BResultElementFactory,
             IBFactory BFactory,
             Is s)
         {
-            RedBlackTree<IsIndexElement, IBResultElement> redBlackTree = new RedBlackTree<IsIndexElement, IBResultElement>();
+            RedBlackTree<IsIndexElement, IBResultElement> redBlackTree = redBlackTreeFactory.Create<IsIndexElement, IBResultElement>();
 
             foreach (IsIndexElement sIndexElement in s.Value.Values)
             {
