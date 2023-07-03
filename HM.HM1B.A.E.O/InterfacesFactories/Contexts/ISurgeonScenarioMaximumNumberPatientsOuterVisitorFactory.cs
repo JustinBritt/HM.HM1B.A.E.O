@@ -5,6 +5,7 @@
     using NGenerics.DataStructures.Trees;
 
     using HM.HM1B.A.E.O.Interfaces.Indices;
+    using HM.HM1B.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
     using HM.HM1B.A.E.O.InterfacesFactories.ParameterElements.Surgeries;
     using HM.HM1B.A.E.O.InterfacesVisitors.Contexts;
 
@@ -12,6 +13,7 @@
     {
         ISurgeonScenarioMaximumNumberPatientsOuterVisitor<TKey, TValue> Create<TKey, TValue>(
             ISurgeonScenarioMaximumNumberPatientsInnerVisitorFactory surgeonScenarioMaximumNumberPatientsInnerVisitorFactory,
+            IRedBlackTreeFactory redBlackTreeFactory,
             InParameterElementFactory nParameterElementFactory,
             Is s,
             IΛ Λ)

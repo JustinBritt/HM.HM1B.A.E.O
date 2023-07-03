@@ -142,6 +142,7 @@
             // n(s, Λ)
             ISurgeonScenarioMaximumNumberPatientsOuterVisitor<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>> surgeonScenarioMaximumNumberPatientsOuterVisitor = contextsAbstractFactory.CreateSurgeonScenarioMaximumNumberPatientsOuterVisitorFactory().Create<Organization, RedBlackTree<INullableValue<int>, INullableValue<int>>>(
                 contextsAbstractFactory.CreateSurgeonScenarioMaximumNumberPatientsInnerVisitorFactory(),
+                dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
                 parameterElementsAbstractFactory.CreatenParameterElementFactory(),
                 this.s,
                 this.Λ);

@@ -9,6 +9,7 @@
     using HM.HM1B.A.E.O.Interfaces.IndexElements;
     using HM.HM1B.A.E.O.Interfaces.Indices;
     using HM.HM1B.A.E.O.InterfacesFactories.Contexts;
+    using HM.HM1B.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
     using HM.HM1B.A.E.O.InterfacesFactories.ParameterElements.Surgeries;
     using HM.HM1B.A.E.O.InterfacesVisitors.Contexts;
     using HM.HM1B.A.E.O.Visitors.Contexts;
@@ -22,6 +23,7 @@
         }
 
         public ISurgeonScenarioMaximumNumberPatientsInnerVisitor<TKey, TValue> Create<TKey, TValue>(
+            IRedBlackTreeFactory redBlackTreeFactory,
             InParameterElementFactory nParameterElementFactory,
             IsIndexElement sIndexElement,
             IΛ Λ)
@@ -33,6 +35,7 @@
             try
             {
                 instance = new SurgeonScenarioMaximumNumberPatientsInnerVisitor<TKey, TValue>(
+                    redBlackTreeFactory,
                     nParameterElementFactory,
                     sIndexElement,
                     Λ);

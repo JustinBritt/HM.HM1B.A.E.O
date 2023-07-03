@@ -13,6 +13,7 @@
     using HM.HM1B.A.E.O.Interfaces.Indices;
     using HM.HM1B.A.E.O.Interfaces.ParameterElements.Surgeries;
     using HM.HM1B.A.E.O.InterfacesFactories.Contexts;
+    using HM.HM1B.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
     using HM.HM1B.A.E.O.InterfacesFactories.ParameterElements.Surgeries;
     using HM.HM1B.A.E.O.InterfacesVisitors.Contexts;
 
@@ -24,11 +25,14 @@
 
         public SurgeonScenarioMaximumNumberPatientsOuterVisitor(
             ISurgeonScenarioMaximumNumberPatientsInnerVisitorFactory surgeonScenarioMaximumNumberPatientsInnerVisitorFactory,
+            IRedBlackTreeFactory redBlackTreeFactory,
             InParameterElementFactory nParameterElementFactory,
             Is s,
             IΛ Λ)
         {
             this.SurgeonScenarioMaximumNumberPatientsInnerVisitorFactory = surgeonScenarioMaximumNumberPatientsInnerVisitorFactory;
+
+            this.RedBlackTreeFactory = redBlackTreeFactory;
 
             this.nParameterElementFactory = nParameterElementFactory;
 
@@ -36,10 +40,12 @@
 
             this.Λ = Λ;
 
-            this.RedBlackTree = new RedBlackTree<IsIndexElement, RedBlackTree<IΛIndexElement, InParameterElement>>();
+            this.RedBlackTree = this.RedBlackTreeFactory.Create<IsIndexElement, RedBlackTree<IΛIndexElement, InParameterElement>>();
         }
 
         private ISurgeonScenarioMaximumNumberPatientsInnerVisitorFactory SurgeonScenarioMaximumNumberPatientsInnerVisitorFactory { get; }
+
+        private IRedBlackTreeFactory RedBlackTreeFactory { get; }
 
         private InParameterElementFactory nParameterElementFactory { get; }
 
@@ -59,6 +65,7 @@
             RedBlackTree<INullableValue<int>, INullableValue<int>> value = obj.Value;
 
             var innerVisitor = this.SurgeonScenarioMaximumNumberPatientsInnerVisitorFactory.Create<INullableValue<int>, INullableValue<int>>(
+                this.RedBlackTreeFactory,
                 this.nParameterElementFactory,
                 sIndexElement,
                 this.Λ);
