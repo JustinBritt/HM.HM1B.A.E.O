@@ -193,7 +193,7 @@
                 dayAvailabilitiesVisitor.RedBlackTree);
 
             // ω(s)
-            ISurgeonPenaltyWeightsVisitor<Organization, INullableValue<decimal>> surgeonPenaltyWeightsVisitor = new HM.HM1B.A.E.O.Visitors.Contexts.SurgeonPenaltyWeightsVisitor<Organization, INullableValue<decimal>>(
+            ISurgeonPenaltyWeightsVisitor<Organization, INullableValue<decimal>> surgeonPenaltyWeightsVisitor = contextsAbstractFactory.CreateSurgeonPenaltyWeightsVisitorFactory().Create<Organization, INullableValue<decimal>>(
                 parameterElementsAbstractFactory.CreateωParameterElementFactory(),
                 this.s);
 
