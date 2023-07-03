@@ -142,6 +142,24 @@
             return factory;
         }
 
+        public ISurgeonServiceLevelNumberTimeBlocksOuterVisitorFactory CreateSurgeonServiceLevelNumberTimeBlocksOuterVisitorFactory()
+        {
+            ISurgeonServiceLevelNumberTimeBlocksOuterVisitorFactory factory = null;
+
+            try
+            {
+                factory = new SurgeonServiceLevelNumberTimeBlocksOuterVisitorFactory();
+            }
+            catch (Exception exception)
+            {
+                this.Log.Error(
+                    exception.Message,
+                    exception);
+            }
+
+            return factory;
+        }
+
         public ISurgeonStrategicTargetsVisitorFactory CreateSurgeonStrategicTargetsVisitorFactory()
         {
             ISurgeonStrategicTargetsVisitorFactory factory = null;
