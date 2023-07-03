@@ -10,6 +10,8 @@
     {
         HM.HM1B.A.E.O.InterfacesFactories.Results.SurgicalSpecialtyNumberAssignedTimeBlocks.IBFactory CreateBBarFactory();
 
+        HM.HM1B.A.E.O.InterfacesFactories.Results.SurgicalSpecialtyNumberAssignedTimeBlocks.IBVisitorFactory CreateBBarVisitorFactory();
+
         IBestBoundFactory CreateBestBoundFactory();
 
         HM.HM1B.A.E.O.InterfacesFactories.Results.SurgeonNumberAssignedTimeBlocks.IBFactory CreateBsFactory();
