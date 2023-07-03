@@ -4,6 +4,8 @@
 
     public interface IContextsAbstractFactory
     {
+        IDayAvailabilitiesVisitorFactory CreateDayAvailabilitiesVisitorFactory();
+
         IHM1BInputContextFactory CreateHM1BInputContextFactory();
 
         IHM1BOutputContextFactory CreateHM1BOutputContextFactory();
