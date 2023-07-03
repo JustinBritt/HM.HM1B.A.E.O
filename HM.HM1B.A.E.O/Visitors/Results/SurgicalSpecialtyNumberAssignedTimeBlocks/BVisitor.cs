@@ -12,6 +12,7 @@
     using HM.HM1B.A.E.O.Interfaces.IndexElements;
     using HM.HM1B.A.E.O.Interfaces.ResultElements.SurgicalSpecialtyNumberAssignedTimeBlocks;
     using HM.HM1B.A.E.O.InterfacesFactories.Dependencies.Hl7.Fhir.R4.Model;
+    using HM.HM1B.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
     using HM.HM1B.A.E.O.InterfacesVisitors.Results.SurgicalSpecialtyNumberAssignedTimeBlocks;
 
     internal sealed class BVisitor<TKey, TValue> : IBVisitor<TKey, TValue>
@@ -22,11 +23,12 @@
 
         public BVisitor(
             INullableValueFactory nullableValueFactory,
+            IRedBlackTreeFactory redBlackTreeFactory,
             IOrganizationComparer organizationComparer)
         {
             this.NullableValueFactory = nullableValueFactory;
 
-            this.RedBlackTree = new RedBlackTree<Organization, INullableValue<int>>(
+            this.RedBlackTree = redBlackTreeFactory.Create<Organization, INullableValue<int>>(
                 organizationComparer);
         }
 
