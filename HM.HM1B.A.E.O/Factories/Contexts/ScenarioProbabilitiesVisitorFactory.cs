@@ -8,6 +8,7 @@
 
     using HM.HM1B.A.E.O.Interfaces.Indices;
     using HM.HM1B.A.E.O.InterfacesFactories.Contexts;
+    using HM.HM1B.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
     using HM.HM1B.A.E.O.InterfacesFactories.ParameterElements.ScenarioProbabilities;
     using HM.HM1B.A.E.O.InterfacesVisitors.Contexts;
     using HM.HM1B.A.E.O.Visitors.Contexts;
@@ -21,6 +22,7 @@
         }
 
         public IScenarioProbabilitiesVisitor<TKey, TValue> Create<TKey, TValue>(
+            IRedBlackTreeFactory redBlackTreeFactory,
             IΡParameterElementFactory ΡParameterElementFactory,
             IΛ Λ)
             where TKey : INullableValue<int>
@@ -31,6 +33,7 @@
             try
             {
                 instance = new ScenarioProbabilitiesVisitor<TKey, TValue>(
+                    redBlackTreeFactory,
                     ΡParameterElementFactory,
                     Λ);
             }

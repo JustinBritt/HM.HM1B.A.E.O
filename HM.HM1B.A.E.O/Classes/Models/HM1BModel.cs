@@ -167,6 +167,7 @@
 
             // Ρ(Λ)
             IScenarioProbabilitiesVisitor<INullableValue<int>, INullableValue<decimal>> scenarioProbabilitiesVisitor = contextsAbstractFactory.CreateScenarioProbabilitiesVisitorFactory().Create<INullableValue<int>, INullableValue<decimal>>(
+                dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
                 parameterElementsAbstractFactory.CreateΡParameterElementFactory(),
                 this.Λ);
 
