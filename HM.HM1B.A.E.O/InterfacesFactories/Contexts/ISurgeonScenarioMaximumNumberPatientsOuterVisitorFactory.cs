@@ -11,6 +11,7 @@
     public interface ISurgeonScenarioMaximumNumberPatientsOuterVisitorFactory
     {
         ISurgeonScenarioMaximumNumberPatientsOuterVisitor<TKey, TValue> Create<TKey, TValue>(
+            ISurgeonScenarioMaximumNumberPatientsInnerVisitorFactory surgeonScenarioMaximumNumberPatientsInnerVisitorFactory,
             InParameterElementFactory nParameterElementFactory,
             Is s,
             IΛ Λ)

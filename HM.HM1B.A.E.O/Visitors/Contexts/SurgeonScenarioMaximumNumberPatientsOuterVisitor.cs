@@ -12,6 +12,7 @@
     using HM.HM1B.A.E.O.Interfaces.IndexElements;
     using HM.HM1B.A.E.O.Interfaces.Indices;
     using HM.HM1B.A.E.O.Interfaces.ParameterElements.Surgeries;
+    using HM.HM1B.A.E.O.InterfacesFactories.Contexts;
     using HM.HM1B.A.E.O.InterfacesFactories.ParameterElements.Surgeries;
     using HM.HM1B.A.E.O.InterfacesVisitors.Contexts;
 
@@ -22,10 +23,13 @@
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public SurgeonScenarioMaximumNumberPatientsOuterVisitor(
+            ISurgeonScenarioMaximumNumberPatientsInnerVisitorFactory surgeonScenarioMaximumNumberPatientsInnerVisitorFactory,
             InParameterElementFactory nParameterElementFactory,
             Is s,
             IΛ Λ)
         {
+            this.SurgeonScenarioMaximumNumberPatientsInnerVisitorFactory = surgeonScenarioMaximumNumberPatientsInnerVisitorFactory;
+
             this.nParameterElementFactory = nParameterElementFactory;
 
             this.s = s;
@@ -34,6 +38,8 @@
 
             this.RedBlackTree = new RedBlackTree<IsIndexElement, RedBlackTree<IΛIndexElement, InParameterElement>>();
         }
+
+        private ISurgeonScenarioMaximumNumberPatientsInnerVisitorFactory SurgeonScenarioMaximumNumberPatientsInnerVisitorFactory { get; }
 
         private InParameterElementFactory nParameterElementFactory { get; }
 
@@ -52,7 +58,7 @@
 
             RedBlackTree<INullableValue<int>, INullableValue<int>> value = obj.Value;
 
-            var innerVisitor = new SurgeonScenarioMaximumNumberPatientsInnerVisitor<INullableValue<int>, INullableValue<int>>(
+            var innerVisitor = this.SurgeonScenarioMaximumNumberPatientsInnerVisitorFactory.Create<INullableValue<int>, INullableValue<int>>(
                 this.nParameterElementFactory,
                 sIndexElement,
                 this.Λ);

@@ -23,6 +23,7 @@
         }
 
         public ISurgeonScenarioMaximumNumberPatientsOuterVisitor<TKey, TValue> Create<TKey, TValue>(
+            ISurgeonScenarioMaximumNumberPatientsInnerVisitorFactory surgeonScenarioMaximumNumberPatientsInnerVisitorFactory,
             InParameterElementFactory nParameterElementFactory,
             Is s,
             IΛ Λ)
@@ -34,6 +35,7 @@
             try
             {
                 instance = new SurgeonScenarioMaximumNumberPatientsOuterVisitor<TKey, TValue>(
+                    surgeonScenarioMaximumNumberPatientsInnerVisitorFactory,
                     nParameterElementFactory,
                     s,
                     Λ);
