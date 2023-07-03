@@ -13,5 +13,7 @@
         IPlanningHorizonVisitorFactory CreatePlanningHorizonVisitorFactory();
 
         IScenarioProbabilitiesVisitorFactory CreateScenarioProbabilitiesVisitorFactory();
+
+        ISurgeonPenaltyWeightsVisitorFactory CreateSurgeonPenaltyWeightsVisitorFactory();
     }
 }

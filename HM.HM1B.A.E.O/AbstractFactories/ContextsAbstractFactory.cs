@@ -105,5 +105,23 @@
 
             return factory;
         }
+
+        public ISurgeonPenaltyWeightsVisitorFactory CreateSurgeonPenaltyWeightsVisitorFactory()
+        {
+            ISurgeonPenaltyWeightsVisitorFactory factory = null;
+
+            try
+            {
+                factory = new SurgeonPenaltyWeightsVisitorFactory();
+            }
+            catch (Exception exception)
+            {
+                this.Log.Error(
+                    exception.Message,
+                    exception);
+            }
+
+            return factory;
+        }
     }
 }
