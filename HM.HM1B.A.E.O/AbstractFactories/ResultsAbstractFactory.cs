@@ -78,6 +78,24 @@
             return factory;
         }
 
+        public HM.HM1B.A.E.O.InterfacesFactories.Results.SurgeonNumberAssignedTimeBlocks.IBVisitorFactory CreateBsVisitorFactory()
+        {
+            HM.HM1B.A.E.O.InterfacesFactories.Results.SurgeonNumberAssignedTimeBlocks.IBVisitorFactory factory = null;
+
+            try
+            {
+                factory = new HM.HM1B.A.E.O.Factories.Results.SurgeonNumberAssignedTimeBlocks.BVisitorFactory();
+            }
+            catch (Exception exception)
+            {
+                this.Log.Error(
+                    exception.Message,
+                    exception);
+            }
+
+            return factory;
+        }
+
         public IGapFactory CreateGapFactory()
         {
             IGapFactory factory = null;

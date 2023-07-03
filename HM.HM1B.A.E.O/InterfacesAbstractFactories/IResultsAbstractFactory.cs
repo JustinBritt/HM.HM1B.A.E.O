@@ -14,6 +14,8 @@
 
         HM.HM1B.A.E.O.InterfacesFactories.Results.SurgeonNumberAssignedTimeBlocks.IBFactory CreateBsFactory();
 
+        HM.HM1B.A.E.O.InterfacesFactories.Results.SurgeonNumberAssignedTimeBlocks.IBVisitorFactory CreateBsVisitorFactory();
+
         IGapFactory CreateGapFactory();
 
         INumberOfExploredNodesFactory CreateNumberOfExploredNodesFactory();
