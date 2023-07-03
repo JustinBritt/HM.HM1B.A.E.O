@@ -5,12 +5,16 @@
     using Hl7.Fhir.Model;
 
     using NGenerics.DataStructures.Trees;
+    using NGenerics.Patterns.Visitor;
 
     using HM.HM1B.A.E.O.Interfaces.ParameterElements.SurgicalSpecialties;
     using HM.HM1B.A.E.O.Interfaces.ResultElements.SurgicalSpecialtyNumberAssignedTimeBlocks;
     using HM.HM1B.A.E.O.Interfaces.Results.SurgicalSpecialtyNumberAssignedTimeBlocks;
     using HM.HM1B.A.E.O.InterfacesFactories.Comparers;
     using HM.HM1B.A.E.O.InterfacesFactories.Dependencies.Hl7.Fhir.R4.Model;
+    using HM.HM1B.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
+    using HM.HM1B.A.E.O.InterfacesFactories.Results.SurgicalSpecialtyNumberAssignedTimeBlocks;
+    using HM.HM1B.A.E.O.InterfacesVisitors.Results.SurgicalSpecialtyNumberAssignedTimeBlocks;
 
     internal sealed class B : IB
     {
@@ -26,20 +30,19 @@
 
         public RedBlackTree<Organization, INullableValue<int>> GetValueForOutputContext(
             IOrganizationComparerFactory organizationComparerFactory,
-            INullableValueFactory nullableValueFactory)
+            INullableValueFactory nullableValueFactory,
+            IRedBlackTreeFactory redBlackTreeFactory,
+            IBVisitorFactory BVisitorFactory)
         {
-            RedBlackTree<Organization, INullableValue<int>> redBlackTree = new RedBlackTree<Organization, INullableValue<int>>(
+            IBVisitor<IΔParameterElement, IBResultElement> BVisitor = BVisitorFactory.Create<IΔParameterElement, IBResultElement>(
+                nullableValueFactory,
+                redBlackTreeFactory,
                 organizationComparerFactory.Create());
 
-            foreach (IBResultElement BResultElement in this.Value.Values)
-            {
-                redBlackTree.Add(
-                    BResultElement.jIndexElement.Value,
-                    nullableValueFactory.Create<int>(
-                        BResultElement.Value));
-            }
+            this.Value.AcceptVisitor(
+                BVisitor);
 
-            return redBlackTree;
+            return BVisitor.RedBlackTree;
         }
     }
 }

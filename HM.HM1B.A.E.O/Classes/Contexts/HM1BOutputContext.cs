@@ -79,7 +79,9 @@
                 Bs)
                 .GetValueForOutputContext(
                 comparersAbstractFactory.CreateOrganizationComparerFactory(),   
-                dependenciesAbstractFactory.CreateNullableValueFactory());
+                dependenciesAbstractFactory.CreateNullableValueFactory(),
+                dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
+                resultsAbstractFactory.CreateBBarVisitorFactory());
         }
 
         public RedBlackTree<Organization, INullableValue<int>> SurgicalSpecialtyNumberAssignedTimeBlocks { get; }
