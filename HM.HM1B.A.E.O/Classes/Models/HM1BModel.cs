@@ -150,7 +150,7 @@
                 surgeonScenarioMaximumNumberPatientsOuterVisitor.RedBlackTree);
 
             // Δ(j)
-            ISurgicalSpecialtiesVisitor<Organization, ImmutableSortedSet<Organization>> surgicalSpecialtiesVisitor = new HM.HM1B.A.E.O.Visitors.Contexts.SurgicalSpecialtiesVisitor<Organization, ImmutableSortedSet<Organization>>(
+            ISurgicalSpecialtiesVisitor<Organization, ImmutableSortedSet<Organization>> surgicalSpecialtiesVisitor = contextsAbstractFactory.CreateSurgicalSpecialtiesVisitorFactory().Create<Organization, ImmutableSortedSet<Organization>>(
                 parameterElementsAbstractFactory.CreateΔParameterElementFactory(),
                 this.j,
                 this.s);
