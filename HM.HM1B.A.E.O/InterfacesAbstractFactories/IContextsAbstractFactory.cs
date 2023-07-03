@@ -11,5 +11,7 @@
         IHM1BOutputContextFactory CreateHM1BOutputContextFactory();
 
         IPlanningHorizonVisitorFactory CreatePlanningHorizonVisitorFactory();
+
+        IScenarioProbabilitiesVisitorFactory CreateScenarioProbabilitiesVisitorFactory();
     }
 }
