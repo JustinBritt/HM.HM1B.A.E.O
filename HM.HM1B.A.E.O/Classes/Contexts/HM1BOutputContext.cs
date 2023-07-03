@@ -60,6 +60,7 @@
 
             // B(s)
             HM.HM1B.A.E.O.Interfaces.Results.SurgeonNumberAssignedTimeBlocks.IB Bs = HM1BModel.B.GetElementsAt(
+                dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
                 resultElementsAbstractFactory.CreateBsResultElementFactory(),
                 resultsAbstractFactory.CreateBsFactory(),
                 HM1BModel.s);
