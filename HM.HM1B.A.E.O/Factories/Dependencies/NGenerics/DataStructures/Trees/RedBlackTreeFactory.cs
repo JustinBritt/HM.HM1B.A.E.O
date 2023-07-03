@@ -18,11 +18,11 @@
 
         public RedBlackTree<TKey, TValue> Create<TKey, TValue>()
         {
-            RedBlackTree<TKey, TValue> model = null;
+            RedBlackTree<TKey, TValue> instance = null;
 
             try
             {
-                model = new RedBlackTree<TKey, TValue>();
+                instance = new RedBlackTree<TKey, TValue>();
             }
             catch (Exception exception)
             {
@@ -31,7 +31,7 @@
                     exception);
             }
 
-            return model;
+            return instance;
         }
     }
 }
