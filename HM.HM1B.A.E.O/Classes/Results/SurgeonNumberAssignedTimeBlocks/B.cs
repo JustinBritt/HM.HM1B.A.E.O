@@ -15,6 +15,7 @@
     using HM.HM1B.A.E.O.Interfaces.Results.SurgeonNumberAssignedTimeBlocks;
     using HM.HM1B.A.E.O.InterfacesFactories.Comparers;
     using HM.HM1B.A.E.O.InterfacesFactories.Dependencies.Hl7.Fhir.R4.Model;
+    using HM.HM1B.A.E.O.InterfacesFactories.Results.SurgeonNumberAssignedTimeBlocks;
     using HM.HM1B.A.E.O.InterfacesVisitors.Results.SurgeonNumberAssignedTimeBlocks;
 
     internal sealed class B : IB
@@ -52,9 +53,10 @@
 
         public RedBlackTree<Organization, INullableValue<int>> GetValueForOutputContext(
             IOrganizationComparerFactory organizationComparerFactory,
-            INullableValueFactory nullableValueFactory)
+            INullableValueFactory nullableValueFactory,
+            IBVisitorFactory BVisitorFactory)
         {
-            IBVisitor<IsIndexElement, IBResultElement> BVisitor = new HM.HM1B.A.E.O.Visitors.Results.SurgeonNumberAssignedTimeBlocks.BVisitor<IsIndexElement, IBResultElement>(
+            IBVisitor<IsIndexElement, IBResultElement> BVisitor = BVisitorFactory.Create<IsIndexElement, IBResultElement>(
                 nullableValueFactory,
                 organizationComparerFactory.Create());
 

@@ -66,7 +66,8 @@
 
             this.SurgeonNumberAssignedTimeBlocks = Bs.GetValueForOutputContext(
                 comparersAbstractFactory.CreateOrganizationComparerFactory(),
-                dependenciesAbstractFactory.CreateNullableValueFactory());
+                dependenciesAbstractFactory.CreateNullableValueFactory(),
+                resultsAbstractFactory.CreateBsVisitorFactory());
 
             // BBar(j)
             this.SurgicalSpecialtyNumberAssignedTimeBlocks = calculationsAbstractFactory.CreateBCalculationFactory().Create().Calculate(
