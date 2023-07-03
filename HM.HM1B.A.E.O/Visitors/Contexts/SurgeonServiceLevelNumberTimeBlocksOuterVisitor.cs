@@ -64,7 +64,7 @@
 
             RedBlackTree<INullableValue<int>, INullableValue<int>> value = obj.Value;
 
-            var innerVisitor = this.SurgeonServiceLevelNumberTimeBlocksInnerVisitorFactory.Create<INullableValue<int>, INullableValue<int>>(
+            ISurgeonServiceLevelNumberTimeBlocksInnerVisitor<INullableValue<int>, INullableValue<int>> innerVisitor = this.SurgeonServiceLevelNumberTimeBlocksInnerVisitorFactory.Create<INullableValue<int>, INullableValue<int>>(
                 this.RedBlackTreeFactory,
                 this.AParameterElementFactory,
                 sIndexElement,
