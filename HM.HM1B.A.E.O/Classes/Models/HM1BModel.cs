@@ -185,6 +185,7 @@
 
             // ψ(t)
             IDayAvailabilitiesVisitor<FhirDateTime, INullableValue<bool>> dayAvailabilitiesVisitor = contextsAbstractFactory.CreateDayAvailabilitiesVisitorFactory().Create<FhirDateTime, INullableValue<bool>>(
+                dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
                 parameterElementsAbstractFactory.CreateψParameterElementFactory(),
                 this.t);
 
