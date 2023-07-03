@@ -182,7 +182,7 @@
                 this.υ1.GetElementAt(this.Context.NextOperatingRoomServiceLevel));
 
             // ψ(t)
-            IDayAvailabilitiesVisitor<FhirDateTime, INullableValue<bool>> dayAvailabilitiesVisitor = new HM.HM1B.A.E.O.Visitors.Contexts.DayAvailabilitiesVisitor<FhirDateTime, INullableValue<bool>>(
+            IDayAvailabilitiesVisitor<FhirDateTime, INullableValue<bool>> dayAvailabilitiesVisitor = contextsAbstractFactory.CreateDayAvailabilitiesVisitorFactory().Create<FhirDateTime, INullableValue<bool>>(
                 parameterElementsAbstractFactory.CreateψParameterElementFactory(),
                 this.t);
 
