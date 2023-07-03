@@ -23,6 +23,7 @@
         }
 
         public ISurgeonServiceLevelNumberTimeBlocksOuterVisitor<TKey, TValue> Create<TKey, TValue>(
+            ISurgeonServiceLevelNumberTimeBlocksInnerVisitorFactory surgeonServiceLevelNumberTimeBlocksInnerVisitorFactory,
             IAParameterElementFactory AParameterElementFactory,
             Is s,
             Iυ1 υ1)
@@ -34,6 +35,7 @@
             try
             {
                 instance = new SurgeonServiceLevelNumberTimeBlocksOuterVisitor<TKey, TValue>(
+                    surgeonServiceLevelNumberTimeBlocksInnerVisitorFactory,
                     AParameterElementFactory,
                     s,
                     υ1);

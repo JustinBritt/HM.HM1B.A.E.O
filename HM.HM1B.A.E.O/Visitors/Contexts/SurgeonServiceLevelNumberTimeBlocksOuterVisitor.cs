@@ -13,6 +13,7 @@
     using HM.HM1B.A.E.O.Interfaces.Indices;
     using HM.HM1B.A.E.O.Interfaces.ParameterElements.SurgeonServiceLevelTimeBlockRequirements;
     using HM.HM1B.A.E.O.InterfacesVisitors.Contexts;
+    using HM.HM1B.A.E.O.InterfacesFactories.Contexts;
     using HM.HM1B.A.E.O.InterfacesFactories.ParameterElements.SurgeonServiceLevelTimeBlockRequirements;
 
     internal sealed class SurgeonServiceLevelNumberTimeBlocksOuterVisitor<TKey, TValue> : ISurgeonServiceLevelNumberTimeBlocksOuterVisitor<TKey, TValue>
@@ -22,10 +23,13 @@
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         public SurgeonServiceLevelNumberTimeBlocksOuterVisitor(
+            ISurgeonServiceLevelNumberTimeBlocksInnerVisitorFactory surgeonServiceLevelNumberTimeBlocksInnerVisitorFactory,
             IAParameterElementFactory AParameterElementFactory,
             Is s,
             Iυ1 υ1)
         {
+            this.SurgeonServiceLevelNumberTimeBlocksInnerVisitorFactory = surgeonServiceLevelNumberTimeBlocksInnerVisitorFactory;
+
             this.AParameterElementFactory = AParameterElementFactory;
 
             this.s = s;
@@ -34,6 +38,8 @@
 
             this.RedBlackTree = new RedBlackTree<IsIndexElement, RedBlackTree<Iυ1IndexElement, IAParameterElement>>();
         }
+
+        private ISurgeonServiceLevelNumberTimeBlocksInnerVisitorFactory SurgeonServiceLevelNumberTimeBlocksInnerVisitorFactory { get; }
 
         private IAParameterElementFactory AParameterElementFactory { get; }
 
@@ -52,7 +58,7 @@
 
             RedBlackTree<INullableValue<int>, INullableValue<int>> value = obj.Value;
 
-            var innerVisitor = new SurgeonServiceLevelNumberTimeBlocksInnerVisitor<INullableValue<int>, INullableValue<int>>(
+            var innerVisitor = this.SurgeonServiceLevelNumberTimeBlocksInnerVisitorFactory.Create<INullableValue<int>, INullableValue<int>>(
                 this.AParameterElementFactory,
                 sIndexElement,
                 this.υ1);
