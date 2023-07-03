@@ -8,6 +8,7 @@
 
     using HM.HM1B.A.E.O.Interfaces.Comparers;
     using HM.HM1B.A.E.O.InterfacesFactories.Contexts;
+    using HM.HM1B.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
     using HM.HM1B.A.E.O.InterfacesFactories.IndexElements;
     using HM.HM1B.A.E.O.InterfacesVisitors.Contexts;
     using HM.HM1B.A.E.O.Visitors.Contexts;
@@ -21,6 +22,7 @@
         }
 
         public IPlanningHorizonVisitor<TKey, TValue> Create<TKey, TValue>(
+            IRedBlackTreeFactory redBlackTreeFactory,
             ItIndexElementFactory tIndexElementFactory,
             IFhirDateTimeComparer FhirDateTimeComparer)
             where TKey : INullableValue<int>
@@ -31,6 +33,7 @@
             try
             {
                 instance = new PlanningHorizonVisitor<TKey, TValue>(
+                    redBlackTreeFactory,
                     tIndexElementFactory,
                     FhirDateTimeComparer);
             }

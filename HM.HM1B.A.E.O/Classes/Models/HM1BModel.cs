@@ -81,8 +81,9 @@
 
             // t
             IPlanningHorizonVisitor<INullableValue<int>, FhirDateTime> planningHorizonVisitor = contextsAbstractFactory.CreatePlanningHorizonVisitorFactory().Create<INullableValue<int>, FhirDateTime>(
-                    indexElementsAbstractFactory.CreatetIndexElementFactory(),
-                    comparersAbstractFactory.CreateFhirDateTimeComparerFactory().Create());
+                dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
+                indexElementsAbstractFactory.CreatetIndexElementFactory(),
+                comparersAbstractFactory.CreateFhirDateTimeComparerFactory().Create());
 
             this.Context.PlanningHorizon.AcceptVisitor(
                 planningHorizonVisitor);
