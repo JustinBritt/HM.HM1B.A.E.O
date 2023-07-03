@@ -9,6 +9,7 @@
 
     using HM.HM1B.A.E.O.Interfaces.Indices;
     using HM.HM1B.A.E.O.InterfacesFactories.Contexts;
+    using HM.HM1B.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
     using HM.HM1B.A.E.O.InterfacesFactories.ParameterElements.SurgicalSpecialties;
     using HM.HM1B.A.E.O.InterfacesVisitors.Contexts;
     using HM.HM1B.A.E.O.Visitors.Contexts;
@@ -22,6 +23,7 @@
         }
 
         public ISurgicalSpecialtiesVisitor<TKey, TValue> Create<TKey, TValue>(
+            IRedBlackTreeFactory redBlackTreeFactory,
             IΔParameterElementFactory ΔParameterElementFactory,
             Ij j,
             Is s)
@@ -33,6 +35,7 @@
             try
             {
                 instance = new SurgicalSpecialtiesVisitor<TKey, TValue>(
+                    redBlackTreeFactory,
                     ΔParameterElementFactory,
                     j,
                     s);

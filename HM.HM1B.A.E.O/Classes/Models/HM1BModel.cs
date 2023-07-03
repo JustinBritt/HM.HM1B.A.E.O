@@ -156,6 +156,7 @@
 
             // Δ(j)
             ISurgicalSpecialtiesVisitor<Organization, ImmutableSortedSet<Organization>> surgicalSpecialtiesVisitor = contextsAbstractFactory.CreateSurgicalSpecialtiesVisitorFactory().Create<Organization, ImmutableSortedSet<Organization>>(
+                dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
                 parameterElementsAbstractFactory.CreateΔParameterElementFactory(),
                 this.j,
                 this.s);
