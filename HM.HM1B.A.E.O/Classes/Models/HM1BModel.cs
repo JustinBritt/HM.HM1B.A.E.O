@@ -55,6 +55,7 @@
 
             // j
             this.j = indicesAbstractFactory.CreatejFactory().Create(
+                dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
                 comparersAbstractFactory.CreateOrganizationComparerFactory().Create(),
                 this.Context.SurgicalSpecialties
                 .Select(x => x.Key)
