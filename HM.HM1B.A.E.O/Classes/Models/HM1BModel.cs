@@ -96,6 +96,7 @@
 
             // Λ
             this.Λ = indicesAbstractFactory.CreateΛFactory().Create(
+                dependenciesAbstractFactory.CreateRedBlackTreeFactory(),
                 comparersAbstractFactory.CreateNullableValueintComparerFactory().Create(),
                 this.Context.Scenarios
                 .Select(x => indexElementsAbstractFactory.CreateΛIndexElementFactory().Create(x))

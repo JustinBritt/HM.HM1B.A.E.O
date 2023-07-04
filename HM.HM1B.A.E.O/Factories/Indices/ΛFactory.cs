@@ -13,6 +13,7 @@
     using HM.HM1B.A.E.O.Interfaces.Comparers;
     using HM.HM1B.A.E.O.Interfaces.IndexElements;
     using HM.HM1B.A.E.O.Interfaces.Indices;
+    using HM.HM1B.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
     using HM.HM1B.A.E.O.InterfacesFactories.Indices;
     
     internal sealed class ΛFactory : IΛFactory
@@ -24,6 +25,7 @@
         }
 
         public IΛ Create(
+            IRedBlackTreeFactory redBlackTreeFactory,
             INullableValueintComparer nullableValueintComparer,
             ImmutableList<IΛIndexElement> value)
         {
@@ -33,6 +35,7 @@
             {
                 index = new Λ(
                     this.CreateRedBlackTree(
+                        redBlackTreeFactory,
                         nullableValueintComparer,
                         value));
             }
@@ -47,10 +50,11 @@
         }
 
         private RedBlackTree<INullableValue<int>, IΛIndexElement> CreateRedBlackTree(
+            IRedBlackTreeFactory redBlackTreeFactory,
             INullableValueintComparer nullableValueintComparer,
             ImmutableList<IΛIndexElement> value)
         {
-            RedBlackTree<INullableValue<int>, IΛIndexElement> redBlackTree = new RedBlackTree<INullableValue<int>, IΛIndexElement>(
+            RedBlackTree<INullableValue<int>, IΛIndexElement> redBlackTree = redBlackTreeFactory.Create<INullableValue<int>, IΛIndexElement>(
                 nullableValueintComparer);
 
             foreach (IΛIndexElement ΛIndexElement in value)
