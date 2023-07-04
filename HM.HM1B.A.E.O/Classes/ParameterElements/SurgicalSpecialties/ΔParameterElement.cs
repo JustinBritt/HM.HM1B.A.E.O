@@ -1,5 +1,6 @@
 ﻿namespace HM.HM1B.A.E.O.Classes.ParameterElements.SurgicalSpecialties
 {
+    using System;
     using System.Collections.Immutable;
 
     using log4net;
@@ -23,5 +24,14 @@
         public IjIndexElement jIndexElement { get; }
 
         public ImmutableList<IsIndexElement> Value { get; }
+
+        /// <inheritdoc/>
+        public int CompareTo(
+            IΔParameterElement other)
+        {
+            return String.CompareOrdinal(
+                other.jIndexElement.Value.Id,
+                this.jIndexElement.Value.Id);
+        }
     }
 }
