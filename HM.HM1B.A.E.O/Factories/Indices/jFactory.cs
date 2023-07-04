@@ -13,9 +13,9 @@
     using HM.HM1B.A.E.O.Interfaces.Comparers;
     using HM.HM1B.A.E.O.Interfaces.IndexElements;
     using HM.HM1B.A.E.O.Interfaces.Indices;
-    using HM.HM1B.A.E.O.InterfacesFactories.Indices;
     using HM.HM1B.A.E.O.InterfacesFactories.Dependencies.NGenerics.DataStructures.Trees;
-
+    using HM.HM1B.A.E.O.InterfacesFactories.Indices;
+    
     internal sealed class jFactory : IjFactory
     {
         private ILog Log => LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
